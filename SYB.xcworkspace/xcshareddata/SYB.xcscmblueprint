@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FBBE5F2F21D5DDDEC929AAC4BCBD7B83151A549E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "646fb212-6d06-11e3-a2a4-57cd746879f3++1155" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "646fb212-6d06-11e3-a2a4-57cd746879f3++1155" : 0,
+    "FBBE5F2F21D5DDDEC929AAC4BCBD7B83151A549E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "04E27E89-A986-425B-AC5E-F7732EFFD275",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "646fb212-6d06-11e3-a2a4-57cd746879f3++1155" : "SYB\/SYB\/ext\/UUChatTableView\/OtherResources\/MJRefresh\/MJRefresh.bundle\/",
+    "FBBE5F2F21D5DDDEC929AAC4BCBD7B83151A549E" : "SYB\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SYB",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SYB.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.179\/BloodSugar",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "646fb212-6d06-11e3-a2a4-57cd746879f3++1155"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/120.27.110.30\/data\/git\/syb_ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FBBE5F2F21D5DDDEC929AAC4BCBD7B83151A549E"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - BlockInjection (0.6.4)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - HyphenateFullSDK (3.1.3)
+  - IQKeyboardManager (4.0.3)
+  - JZLocationConverter (1.0.0)
+  - LKDBHelper (2.3.1):
+    - FMDB
+  - MBProgressHUD (0.9.2)
+  - MJPopupViewController (0.4)
+  - NSData+Base64 (1.0.0)
+  - NSDate+Helper (1.0.4)
+  - OpenUDID (1.0.0)
+  - RATreeView (2.1.0)
+  - Reachability (3.2)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - UICountingLabel (1.4.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0.4)
+  - BlockInjection
+  - HyphenateFullSDK (from `https://github.com/easemob/hyphenate-full-cocoapods.git`)
+  - IQKeyboardManager
+  - JZLocationConverter
+  - LKDBHelper
+  - MBProgressHUD
+  - MJPopupViewController
+  - NSData+Base64
+  - NSDate+Helper
+  - OpenUDID
+  - RATreeView
+  - Reachability
+  - SDWebImage
+  - UICountingLabel
+
+EXTERNAL SOURCES:
+  HyphenateFullSDK:
+    :git: https://github.com/easemob/hyphenate-full-cocoapods.git
+
+CHECKOUT OPTIONS:
+  HyphenateFullSDK:
+    :commit: 904016687d6099c0158971380be7e8cd859fb79e
+    :git: https://github.com/easemob/hyphenate-full-cocoapods.git
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  BlockInjection: 89f1f6129b37a42dd49746e36141069ed6108bd0
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  HyphenateFullSDK: 8b5b092055480308a47c9bb9b78baed7f45f7713
+  IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1
+  JZLocationConverter: 3d816bee6484aed9c155a6045a02ce444833e2f0
+  LKDBHelper: 8d140170652a1ceef59247af4fb55e0a0dcd91dc
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJPopupViewController: e9ad553a3145eb8126ba2748e872ae7fb25cc605
+  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
+  NSDate+Helper: 78f517ac1c67914096433466fa7d20b812b9d86c
+  OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
+  RATreeView: fc82ec26b8be18cfa0f5f99a5abbe6be68edb21f
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  UICountingLabel: ed5ce5b6d5ef278ff40d99cfa49577a30ab0c87b
+
+COCOAPODS: 0.39.0
