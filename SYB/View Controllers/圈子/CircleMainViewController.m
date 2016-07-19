@@ -113,6 +113,7 @@
     cell.userLabel.text = info[@"user"];
     
     return cell;
+    
 }
 
 //打开详情
