@@ -17,6 +17,16 @@
 @implementation AppDelegate
 
 
+//初始化配置参数
++ (void)initialize{
+    
+    NSDictionary *data = @{kEntId:@"f37231af99384af2bcfb6c11fe12f290",
+                           };
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:data];
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
      self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

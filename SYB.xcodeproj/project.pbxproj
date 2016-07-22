@@ -278,6 +278,10 @@
 		183C8DD91D191838001B9503 /* WaitingDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183C8DD81D191838001B9503 /* WaitingDoctorViewController.m */; };
 		183C8DDC1D192918001B9503 /* MyBespokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183C8DDB1D192918001B9503 /* MyBespokeViewController.m */; };
 		183C8DDF1D19340C001B9503 /* CaseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183C8DDE1D19340C001B9503 /* CaseHistoryViewController.m */; };
+		18447B551D3F4F1B00DE65F6 /* CirclePostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18447B541D3F4F1B00DE65F6 /* CirclePostsViewController.m */; };
+		18447B581D3F68EF00DE65F6 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18447B571D3F68EF00DE65F6 /* PostViewController.m */; };
+		18522B9F1D41BAB800CC1EF0 /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18522B9E1D41BAB800CC1EF0 /* MyPostsViewController.m */; };
+		18522BA21D41BB5B00CC1EF0 /* MedicineRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18522BA11D41BB5B00CC1EF0 /* MedicineRemindViewController.m */; };
 		18560E1C1D1A283C00BF47C5 /* AddCaseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18560E1B1D1A283C00BF47C5 /* AddCaseHistoryViewController.m */; };
 		18560E2D1D1A4A8200BF47C5 /* WHUCalendarCal.m in Sources */ = {isa = PBXBuildFile; fileRef = 18560E1F1D1A4A8200BF47C5 /* WHUCalendarCal.m */; };
 		18560E2E1D1A4A8200BF47C5 /* WHUCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18560E211D1A4A8200BF47C5 /* WHUCalendarCell.m */; };
@@ -296,6 +300,13 @@
 		1862D8B31D1F569E00FC8E94 /* PaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1862D8B11D1F569E00FC8E94 /* PaymentCell.xib */; };
 		1862D8B61D1F672600FC8E94 /* PaymentAlreadyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862D8B51D1F672600FC8E94 /* PaymentAlreadyViewController.m */; };
 		1862D8B91D1F69C000FC8E94 /* PaymentNotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862D8B81D1F69C000FC8E94 /* PaymentNotViewController.m */; };
+		1896164A1D3DED250065A572 /* NSString+URL.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1896163F1D3DED250065A572 /* NSString+URL.mm */; };
+		1896164B1D3DED250065A572 /* SL_APIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 189616411D3DED250065A572 /* SL_APIUtil.m */; };
+		1896164C1D3DED250065A572 /* SL_HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 189616431D3DED250065A572 /* SL_HttpRequest.m */; };
+		1896164D1D3DED250065A572 /* SL_HttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 189616451D3DED250065A572 /* SL_HttpResponse.m */; };
+		1896164E1D3DED250065A572 /* SL_NSDictionary2Object.m in Sources */ = {isa = PBXBuildFile; fileRef = 189616471D3DED250065A572 /* SL_NSDictionary2Object.m */; };
+		1896164F1D3DED250065A572 /* UploadImageParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 189616491D3DED250065A572 /* UploadImageParam.m */; };
+		189616521D3DEF340065A572 /* ContactsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 189616511D3DEF340065A572 /* ContactsRequest.m */; };
 		189AA7AF1D1B7E800060955B /* NewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189AA7AE1D1B7E800060955B /* NewsView.m */; };
 		189AA7B21D1BABB60060955B /* MedicallyAppointmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189AA7B11D1BABB60060955B /* MedicallyAppointmentViewController.m */; };
 		189AA7B51D1BCBC90060955B /* MedicallyExpertListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189AA7B41D1BCBC90060955B /* MedicallyExpertListViewController.m */; };
@@ -318,6 +329,7 @@
 		18EDDFF31D17898F00960347 /* WorkOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDDFF11D17898F00960347 /* WorkOrderCell.m */; };
 		18EDDFF41D17898F00960347 /* WorkOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EDDFF21D17898F00960347 /* WorkOrderCell.xib */; };
 		18EDDFF81D17D1D300960347 /* MedicallyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDDFF61D17D1D300960347 /* MedicallyCollectionViewCell.m */; };
+		18F11F301D40A476001428B2 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F11F2F1D40A476001428B2 /* PostDetailsViewController.m */; };
 		364D560095EC877E1A613C19 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9E7C7F1D894E3CC0BDA09E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -697,6 +709,14 @@
 		183C8DDB1D192918001B9503 /* MyBespokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBespokeViewController.m; path = "View Controllers/个人中心/MyBespokeViewController.m"; sourceTree = "<group>"; };
 		183C8DDD1D19340C001B9503 /* CaseHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaseHistoryViewController.h; path = "View Controllers/个人中心/CaseHistoryViewController.h"; sourceTree = "<group>"; };
 		183C8DDE1D19340C001B9503 /* CaseHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaseHistoryViewController.m; path = "View Controllers/个人中心/CaseHistoryViewController.m"; sourceTree = "<group>"; };
+		18447B531D3F4F1B00DE65F6 /* CirclePostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CirclePostsViewController.h; path = "View Controllers/圈子/CirclePostsViewController.h"; sourceTree = "<group>"; };
+		18447B541D3F4F1B00DE65F6 /* CirclePostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CirclePostsViewController.m; path = "View Controllers/圈子/CirclePostsViewController.m"; sourceTree = "<group>"; };
+		18447B561D3F68EF00DE65F6 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = "View Controllers/圈子/PostViewController.h"; sourceTree = "<group>"; };
+		18447B571D3F68EF00DE65F6 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = "View Controllers/圈子/PostViewController.m"; sourceTree = "<group>"; };
+		18522B9D1D41BAB800CC1EF0 /* MyPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPostsViewController.h; path = "View Controllers/个人中心/MyPostsViewController.h"; sourceTree = "<group>"; };
+		18522B9E1D41BAB800CC1EF0 /* MyPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPostsViewController.m; path = "View Controllers/个人中心/MyPostsViewController.m"; sourceTree = "<group>"; };
+		18522BA01D41BB5B00CC1EF0 /* MedicineRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicineRemindViewController.h; path = "View Controllers/个人中心/MedicineRemindViewController.h"; sourceTree = "<group>"; };
+		18522BA11D41BB5B00CC1EF0 /* MedicineRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MedicineRemindViewController.m; path = "View Controllers/个人中心/MedicineRemindViewController.m"; sourceTree = "<group>"; };
 		18560E1A1D1A283C00BF47C5 /* AddCaseHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCaseHistoryViewController.h; path = "View Controllers/个人中心/AddCaseHistoryViewController.h"; sourceTree = "<group>"; };
 		18560E1B1D1A283C00BF47C5 /* AddCaseHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCaseHistoryViewController.m; path = "View Controllers/个人中心/AddCaseHistoryViewController.m"; sourceTree = "<group>"; };
 		18560E1E1D1A4A8200BF47C5 /* WHUCalendarCal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHUCalendarCal.h; path = View/WHUCalendarView/WHUCalendarCal.h; sourceTree = "<group>"; };
@@ -731,6 +751,20 @@
 		1862D8B51D1F672600FC8E94 /* PaymentAlreadyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentAlreadyViewController.m; path = "View Controllers/上医宝/PaymentAlreadyViewController.m"; sourceTree = "<group>"; };
 		1862D8B71D1F69C000FC8E94 /* PaymentNotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentNotViewController.h; path = "View Controllers/上医宝/PaymentNotViewController.h"; sourceTree = "<group>"; };
 		1862D8B81D1F69C000FC8E94 /* PaymentNotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentNotViewController.m; path = "View Controllers/上医宝/PaymentNotViewController.m"; sourceTree = "<group>"; };
+		1896163E1D3DED250065A572 /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URL.h"; path = "Networking/NSString+URL.h"; sourceTree = "<group>"; };
+		1896163F1D3DED250065A572 /* NSString+URL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "NSString+URL.mm"; path = "Networking/NSString+URL.mm"; sourceTree = "<group>"; };
+		189616401D3DED250065A572 /* SL_APIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SL_APIUtil.h; path = Networking/SL_APIUtil.h; sourceTree = "<group>"; };
+		189616411D3DED250065A572 /* SL_APIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SL_APIUtil.m; path = Networking/SL_APIUtil.m; sourceTree = "<group>"; };
+		189616421D3DED250065A572 /* SL_HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SL_HttpRequest.h; path = Networking/SL_HttpRequest.h; sourceTree = "<group>"; };
+		189616431D3DED250065A572 /* SL_HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SL_HttpRequest.m; path = Networking/SL_HttpRequest.m; sourceTree = "<group>"; };
+		189616441D3DED250065A572 /* SL_HttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SL_HttpResponse.h; path = Networking/SL_HttpResponse.h; sourceTree = "<group>"; };
+		189616451D3DED250065A572 /* SL_HttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SL_HttpResponse.m; path = Networking/SL_HttpResponse.m; sourceTree = "<group>"; };
+		189616461D3DED250065A572 /* SL_NSDictionary2Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SL_NSDictionary2Object.h; path = Networking/SL_NSDictionary2Object.h; sourceTree = "<group>"; };
+		189616471D3DED250065A572 /* SL_NSDictionary2Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SL_NSDictionary2Object.m; path = Networking/SL_NSDictionary2Object.m; sourceTree = "<group>"; };
+		189616481D3DED250065A572 /* UploadImageParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadImageParam.h; path = Networking/UploadImageParam.h; sourceTree = "<group>"; };
+		189616491D3DED250065A572 /* UploadImageParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadImageParam.m; path = Networking/UploadImageParam.m; sourceTree = "<group>"; };
+		189616501D3DEF340065A572 /* ContactsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsRequest.h; path = Model/ContactsRequest.h; sourceTree = "<group>"; };
+		189616511D3DEF340065A572 /* ContactsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsRequest.m; path = Model/ContactsRequest.m; sourceTree = "<group>"; };
 		189AA7AD1D1B7E800060955B /* NewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsView.h; path = View/NewsView.h; sourceTree = "<group>"; };
 		189AA7AE1D1B7E800060955B /* NewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsView.m; path = View/NewsView.m; sourceTree = "<group>"; };
 		189AA7B01D1BABB60060955B /* MedicallyAppointmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicallyAppointmentViewController.h; path = "View Controllers/上医宝/MedicallyAppointmentViewController.h"; sourceTree = "<group>"; };
@@ -770,6 +804,8 @@
 		18EDDFF21D17898F00960347 /* WorkOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WorkOrderCell.xib; path = "View Controllers/导医/WorkOrderCell.xib"; sourceTree = "<group>"; };
 		18EDDFF51D17D1D300960347 /* MedicallyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicallyCollectionViewCell.h; path = "View Controllers/上医宝/MedicallyCollectionViewCell.h"; sourceTree = "<group>"; };
 		18EDDFF61D17D1D300960347 /* MedicallyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MedicallyCollectionViewCell.m; path = "View Controllers/上医宝/MedicallyCollectionViewCell.m"; sourceTree = "<group>"; };
+		18F11F2E1D40A476001428B2 /* PostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostDetailsViewController.h; path = "View Controllers/圈子/PostDetailsViewController.h"; sourceTree = "<group>"; };
+		18F11F2F1D40A476001428B2 /* PostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostDetailsViewController.m; path = "View Controllers/圈子/PostDetailsViewController.m"; sourceTree = "<group>"; };
 		1D9E7C7F1D894E3CC0BDA09E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65ED3E2AC24738459D66D5BE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D8487FF26269FAD998D6A66C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -929,6 +965,7 @@
 		183A614D1D0E592C00FD5AB0 /* SYB */ = {
 			isa = PBXGroup;
 			children = (
+				1896163D1D3DED170065A572 /* Networking */,
 				183A61CA1D0E78B000FD5AB0 /* ext */,
 				183A618B1D0E6B1D00FD5AB0 /* img */,
 				183A61841D0E676800FD5AB0 /* View */,
@@ -998,6 +1035,8 @@
 		183A61831D0E676200FD5AB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				189616501D3DEF340065A572 /* ContactsRequest.h */,
+				189616511D3DEF340065A572 /* ContactsRequest.m */,
 				183A61EE1D0E7A7800FD5AB0 /* MyOperation.h */,
 				183A61EF1D0E7A7800FD5AB0 /* MyOperation.m */,
 				183A61F01D0E7A7800FD5AB0 /* NotificationControlModel.h */,
@@ -1404,6 +1443,12 @@
 			children = (
 				183A63841D0F999D00FD5AB0 /* CircleMainViewController.h */,
 				183A63851D0F999D00FD5AB0 /* CircleMainViewController.m */,
+				18447B531D3F4F1B00DE65F6 /* CirclePostsViewController.h */,
+				18447B541D3F4F1B00DE65F6 /* CirclePostsViewController.m */,
+				18447B561D3F68EF00DE65F6 /* PostViewController.h */,
+				18447B571D3F68EF00DE65F6 /* PostViewController.m */,
+				18F11F2E1D40A476001428B2 /* PostDetailsViewController.h */,
+				18F11F2F1D40A476001428B2 /* PostDetailsViewController.m */,
 				18E43A761D20F51E00EE3B33 /* CircleCell.h */,
 				18E43A771D20F51E00EE3B33 /* CircleCell.m */,
 				18E43A781D20F51F00EE3B33 /* CircleCell.xib */,
@@ -1447,6 +1492,10 @@
 				18560E431D1A750300BF47C5 /* CaseHistoryListViewController.m */,
 				18560E471D1A79BB00BF47C5 /* CaseHistoryDetailViewController.h */,
 				18560E481D1A79BB00BF47C5 /* CaseHistoryDetailViewController.m */,
+				18522B9D1D41BAB800CC1EF0 /* MyPostsViewController.h */,
+				18522B9E1D41BAB800CC1EF0 /* MyPostsViewController.m */,
+				18522BA01D41BB5B00CC1EF0 /* MedicineRemindViewController.h */,
+				18522BA11D41BB5B00CC1EF0 /* MedicineRemindViewController.m */,
 			);
 			name = "个人中心";
 			sourceTree = "<group>";
@@ -1471,6 +1520,25 @@
 				18560E2C1D1A4A8200BF47C5 /* WHUCalendarYMSelectView.m */,
 			);
 			name = WHUCalendarView;
+			sourceTree = "<group>";
+		};
+		1896163D1D3DED170065A572 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1896163E1D3DED250065A572 /* NSString+URL.h */,
+				1896163F1D3DED250065A572 /* NSString+URL.mm */,
+				189616401D3DED250065A572 /* SL_APIUtil.h */,
+				189616411D3DED250065A572 /* SL_APIUtil.m */,
+				189616421D3DED250065A572 /* SL_HttpRequest.h */,
+				189616431D3DED250065A572 /* SL_HttpRequest.m */,
+				189616441D3DED250065A572 /* SL_HttpResponse.h */,
+				189616451D3DED250065A572 /* SL_HttpResponse.m */,
+				189616461D3DED250065A572 /* SL_NSDictionary2Object.h */,
+				189616471D3DED250065A572 /* SL_NSDictionary2Object.m */,
+				189616481D3DED250065A572 /* UploadImageParam.h */,
+				189616491D3DED250065A572 /* UploadImageParam.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		18E43A6F1D20C83B00EE3B33 /* UAProgressView */ = {
@@ -1887,6 +1955,7 @@
 				180ADEF71D139A59001EE2A1 /* UUAVAudioPlayer.m in Sources */,
 				18560E2E1D1A4A8200BF47C5 /* WHUCalendarCell.m in Sources */,
 				183A639A1D0F99F800FD5AB0 /* LoginViewController.m in Sources */,
+				1896164D1D3DED250065A572 /* SL_HttpResponse.m in Sources */,
 				183C8DCA1D18F39B001B9503 /* MyNewsViewController.m in Sources */,
 				183A61C51D0E778F00FD5AB0 /* FolderCoverView.m in Sources */,
 				180ADF511D13D2AA001EE2A1 /* AppraisalTableViewCell.m in Sources */,
@@ -1894,6 +1963,7 @@
 				18E43A791D20F51F00EE3B33 /* CircleCell.m in Sources */,
 				18560E491D1A79BB00BF47C5 /* CaseHistoryDetailViewController.m in Sources */,
 				183A61AB1D0E776300FD5AB0 /* CAAnimation+WAnimation.m in Sources */,
+				1896164C1D3DED250065A572 /* SL_HttpRequest.m in Sources */,
 				183A63861D0F999D00FD5AB0 /* CircleMainViewController.m in Sources */,
 				180ADEF91D139A59001EE2A1 /* UUInputFunctionView.m in Sources */,
 				18560E331D1A4A8200BF47C5 /* WHUCalendarYMSelectView.m in Sources */,
@@ -1913,14 +1983,17 @@
 				18560E321D1A4A8200BF47C5 /* WHUCalendarView.m in Sources */,
 				180ADEFA1D139A59001EE2A1 /* UUMessage.m in Sources */,
 				180143621D24F2BD00B79669 /* TypeListViewController.m in Sources */,
+				18F11F301D40A476001428B2 /* PostDetailsViewController.m in Sources */,
 				18560E361D1A626B00BF47C5 /* NextCaseHistoryViewController.m in Sources */,
 				183C8DD91D191838001B9503 /* WaitingDoctorViewController.m in Sources */,
 				180ADEFD1D139A59001EE2A1 /* UUMessageFrame.m in Sources */,
 				183A61881D0E681400FD5AB0 /* TPCPageScrollView.m in Sources */,
+				18447B581D3F68EF00DE65F6 /* PostViewController.m in Sources */,
 				183A61C31D0E778F00FD5AB0 /* DDList.m in Sources */,
 				183A61E61D0E790300FD5AB0 /* CLLocation+YCLocation.m in Sources */,
 				18D8D1E31D123939000B6A91 /* AppointmentViewController.m in Sources */,
 				183C8DDC1D192918001B9503 /* MyBespokeViewController.m in Sources */,
+				1896164E1D3DED250065A572 /* SL_NSDictionary2Object.m in Sources */,
 				183A61ED1D0E798100FD5AB0 /* SJAvatarBrowser.m in Sources */,
 				18560E401D1A709F00BF47C5 /* CaseHistoryCell.m in Sources */,
 				183C8DD31D19130C001B9503 /* RegisterRemindViewController.m in Sources */,
@@ -1930,6 +2003,7 @@
 				183A61C91D0E778F00FD5AB0 /* MBProgressHUD+Add.m in Sources */,
 				18EDDFF31D17898F00960347 /* WorkOrderCell.m in Sources */,
 				189AA7C01D1CECAE0060955B /* PaymentViewController.m in Sources */,
+				18522B9F1D41BAB800CC1EF0 /* MyPostsViewController.m in Sources */,
 				183A61E51D0E790300FD5AB0 /* CCLocationManager.m in Sources */,
 				183A61C61D0E778F00FD5AB0 /* HireListCell.m in Sources */,
 				18A05EDF1D1FE27F005A25DC /* SendAddressViewController.m in Sources */,
@@ -1937,7 +2011,10 @@
 				1862D8B21D1F569E00FC8E94 /* PaymentCell.m in Sources */,
 				189AA7B21D1BABB60060955B /* MedicallyAppointmentViewController.m in Sources */,
 				189AA7BD1D1CEC0D0060955B /* AccessReportViewController.m in Sources */,
+				1896164B1D3DED250065A572 /* SL_APIUtil.m in Sources */,
+				189616521D3DEF340065A572 /* ContactsRequest.m in Sources */,
 				180ADF031D139A92001EE2A1 /* NSDate+Utils.m in Sources */,
+				1896164A1D3DED250065A572 /* NSString+URL.mm in Sources */,
 				180143701D251A9F00B79669 /* RegisterPasswordViewController.m in Sources */,
 				18560E311D1A4A8200BF47C5 /* WHUCalendarPopView.m in Sources */,
 				183A61D91D0E78CB00FD5AB0 /* UIColor+MLPFlatColors.m in Sources */,
@@ -1963,6 +2040,8 @@
 				183A63AB1D0F9AEE00FD5AB0 /* ContackViewController.m in Sources */,
 				18560E301D1A4A8200BF47C5 /* WHUCalendarItem.m in Sources */,
 				183A61C71D0E778F00FD5AB0 /* LeaveSlideView.m in Sources */,
+				1896164F1D3DED250065A572 /* UploadImageParam.m in Sources */,
+				18447B551D3F4F1B00DE65F6 /* CirclePostsViewController.m in Sources */,
 				183A61D81D0E78CB00FD5AB0 /* UIColor+flat.m in Sources */,
 				18D8D1EB1D12949F000B6A91 /* ModifyTreatmentViewController.m in Sources */,
 				183A61531D0E592C00FD5AB0 /* AppDelegate.m in Sources */,
@@ -1976,6 +2055,7 @@
 				183A61F31D0E7A7800FD5AB0 /* NotificationControlModel.m in Sources */,
 				180ADEFB1D139A59001EE2A1 /* UUMessageCell.m in Sources */,
 				183A61C41D0E778F00FD5AB0 /* EGORefreshTableHeaderView.m in Sources */,
+				18522BA21D41BB5B00CC1EF0 /* MedicineRemindViewController.m in Sources */,
 				183A63991D0F99F800FD5AB0 /* KSJXTabBarController.m in Sources */,
 				183A61501D0E592C00FD5AB0 /* main.m in Sources */,
 				180ADEFE1D139A59001EE2A1 /* UUProgressHUD.m in Sources */,

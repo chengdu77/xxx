@@ -15,9 +15,9 @@
 #import "Constants.h"
 #import "KeyboardManager.h"
 #import "NotificationControlModel.h"
-//#import "SL_HttpRequest.h"
-//#import "ContactsRequest.h"
-//#import "SL_APIUtil.h"
+#import "SL_HttpRequest.h"
+#import "ContactsRequest.h"
+#import "SL_APIUtil.h"
 //#import "SLObjectBean.h"
 #import <UIImageView+AFNetworking.h>
 #import "ACMacros.h"

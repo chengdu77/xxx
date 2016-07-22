@@ -674,27 +674,6 @@
     return request;
 }
 
-
-#pragma remark 删除红点数据
-- (void)delRedPointWithId:(NSString *)_id type:(NSString *)type{
-    
-    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_%@",_myUserName,kInfonmationCenterRedPoint]];
-    if (array.count >0) {
-        NSMutableArray *red = [NSMutableArray arrayWithArray:array];
-        for (NSDictionary *info in red) {
-            if ([_id isEqualToString:info[@"id"]] && [type isEqualToString:info[@"type"]]) {
-                [red removeObject:info];
-                [[NSUserDefaults standardUserDefaults] setObject:red forKey:[NSString stringWithFormat:@"%@_%@",_myUserName,kInfonmationCenterRedPoint]];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-                [center postNotificationName:kRefreshRedPointNotification object:nil];
-                break;
-            }
-        }
-    }
-}
-
 - (UIView *)drawViewWithFrame:(CGRect)frame title:(NSString *)title textField:(UITextField **)textField read:(BOOL)read action:(nullable SEL)action must:(BOOL)must tag:(NSInteger)tag{
     
     UIView *view = [UIView new];

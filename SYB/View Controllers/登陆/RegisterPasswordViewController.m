@@ -73,11 +73,13 @@
     UITextField *textField;
     UIView *testView = [self drawViewWithFrame:frame title:@"密       码" textField:&textField read:NO action:nil must:YES tag:0];
     [self.scrollView addSubview:testView];
+    textField.secureTextEntry = YES;
     passwordTextField = textField;
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+10,self.viewWidth, 40);
     UIView *testView1 = [self drawViewWithFrame:frame title:@"确认密码" textField:&textField read:NO action:nil must:YES tag:1];
     [self.scrollView addSubview:testView1];
+    textField.secureTextEntry = YES;
     passwordTextField2 = textField;
     
     frame = CGRectMake(10,CGRectGetMaxY(frame)+25,self.viewWidth-20, 40);
@@ -106,7 +108,25 @@
 
 - (void)nextAction:(UIButton *)sender{
     
+    if (passwordTextField.text.length == 0) {
+        [MBProgressHUD showError:@"请输入密码" toView:ShareAppDelegate.window];
+        return;
+    }
+    
+    if (passwordTextField2.text.length == 0) {
+        [MBProgressHUD showError:@"请输入确认密码" toView:ShareAppDelegate.window];
+        return;
+    }
+    
+    if (![passwordTextField.text isEqualToString:passwordTextField2.text]) {
+        [MBProgressHUD showError:@"两次输入密码不一致" toView:ShareAppDelegate.window];
+        return;
+    }
+    
     RegisterUserInfosViewController *registerUserInfosViewController = RegisterUserInfosViewController.new;
+    registerUserInfosViewController.mobile = self.mobile;
+    registerUserInfosViewController.sms = self.sms;
+    registerUserInfosViewController.password = passwordTextField.text;
     [self.navigationController pushViewController:registerUserInfosViewController animated:YES];
 }
 

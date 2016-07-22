@@ -11,6 +11,7 @@
 @interface ModifypasswordViewController (){
     UITextField *oldPasswordTextField;
     UITextField *newPasswordTextField;
+    UITextField *newPasswordTextField2;
 }
 
 @end
@@ -77,10 +78,33 @@
     
     [self.scrollView addSubview:tempView2];
     
+    
+    frame = CGRectMake(0,CGRectGetMaxY(frame)+1,self.viewWidth, 56);
+    
+    UIView *tempView3 = [UIView new];
+    tempView3.backgroundColor = [UIColor whiteColor];
+    tempView3.frame = frame;
+    
+    UILabel *titleLabel3 = [UILabel new];
+    titleLabel3.frame = CGRectMake(15, 18,50, 20);
+    titleLabel3.text = @"确认新密码";
+    titleLabel3.textColor = kFontColor_Contacts;
+    titleLabel3.font = [UIFont fontWithName:kFontName size:14];
+    [tempView3 addSubview:titleLabel3];
+    
+    newPasswordTextField2 = [UITextField new];
+    newPasswordTextField2.frame = CGRectMake(70, 18,self.viewWidth-90, 20);
+    newPasswordTextField2.textColor = kFontColor_Contacts;
+    newPasswordTextField2.font = [UIFont fontWithName:kFontName size:14];
+    newPasswordTextField2.placeholder = @"请输入6位以上的字母或者数字";
+    [tempView3 addSubview:newPasswordTextField2];
+    
+    [self.scrollView addSubview:tempView3];
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(10,CGRectGetMaxY(frame)+20,self.viewWidth -20,40);
     button.backgroundColor = kALL_COLOR;
-    [button setTitle:@"修改保存" forState:UIControlStateNormal];
+    [button setTitle:@"确认修改" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont fontWithName:kFontName size:14];
  
@@ -93,15 +117,28 @@
     
     NSString *oldStr = oldPasswordTextField.text;
     if (oldStr.length ==0) {
-        [MBProgressHUD showError:@"请输入您的老密码" toView:ShareAppDelegate.window];
+        [MBProgressHUD showError:@"请输入老密码" toView:ShareAppDelegate.window];
         [oldPasswordTextField becomeFirstResponder];
         return;
     }
-    NSString *newStr = newPasswordTextField.text;
     
+    NSString *newStr = newPasswordTextField.text;
     if (newStr.length ==0) {
-        [MBProgressHUD showError:@"请输入您的新密码" toView:ShareAppDelegate.window];
+        [MBProgressHUD showError:@"请输入新密码" toView:ShareAppDelegate.window];
         [newPasswordTextField becomeFirstResponder];
+        return;
+    }
+    
+    NSString *newStr2 = newPasswordTextField2.text;
+    if (newStr2.length ==0) {
+        [MBProgressHUD showError:@"请输入确认新密码" toView:ShareAppDelegate.window];
+        [newPasswordTextField2 becomeFirstResponder];
+        return;
+    }
+    
+    if (![newStr isEqualToString:newStr2]){
+        [MBProgressHUD showError:@"输入新密码与确认新密码不一致" toView:ShareAppDelegate.window];
+        [newPasswordTextField2 becomeFirstResponder];
         return;
     }
 

@@ -234,10 +234,31 @@
 
 - (void)okAction:(UIButton *)sender{
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *targetVC = [storyboard instantiateInitialViewController];
-    UIWindow *win = [[[UIApplication sharedApplication] delegate] window];
-    win.rootViewController = targetVC;
+    NSDictionary *parameters = @{@"mobile":self.mobile,@"password":self.password,@"sms":self.sms};
+    [ContactsRequest registerRequestParameters:parameters success:^(PiblicHttpResponse *response) {
+        NSString *token = response.message[@"tip"];
+        if (token.length >0) {
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController *targetVC = [storyboard instantiateInitialViewController];
+            UIWindow *win = [[[UIApplication sharedApplication] delegate] window];
+            win.rootViewController = targetVC;
+
+        }else{
+            [MBProgressHUD showError:@"登录失败" toView:ShareAppDelegate.window];
+        }
+        
+    } fail:^(BOOL notReachable, NSString *desciption) {
+        
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+    }];
+    
+
+    
+
 
 }
 

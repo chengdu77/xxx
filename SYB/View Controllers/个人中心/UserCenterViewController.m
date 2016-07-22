@@ -14,6 +14,8 @@
 #import "ChatMainViewController.h"
 #import "MyBespokeViewController.h"
 #import "CaseHistoryViewController.h"
+#import "MyPostsViewController.h"
+#import "MedicineRemindViewController.h"
 
 @interface UserCenterViewController ()
 
@@ -41,15 +43,16 @@
     
     frame = CGRectMake(0, CGRectGetMaxY(frame)+5,self.viewWidth, 56);
     UIImage *not_common_seedoctor = [UIImage imageNamed:@"not_common_seedoctor"];
-    UIImage *not_my_message = [UIImage imageNamed:@"not_my_message"];
-    UIImage *not_my_registration = [UIImage imageNamed:@"not_my_registration"];
-    UIImage *not_my_consult = [UIImage imageNamed:@"not_my_consult"];
+//    UIImage *not_my_message = [UIImage imageNamed:@"not_my_message"];
+//    UIImage *not_my_registration = [UIImage imageNamed:@"not_my_registration"];
+//    UIImage *not_my_consult = [UIImage imageNamed:@"not_my_consult"];
     UIImage *not_my_invitation = [UIImage imageNamed:@"not_my_invitation"];
     UIImage *not_my_case_history = [UIImage imageNamed:@"not_my_case_history"];
-    UIImage *not_my_collect = [UIImage imageNamed:@"not_my_collect"];
+//    UIImage *not_my_collect = [UIImage imageNamed:@"not_my_collect"];
     UIImage *not_takedrug_remind = [UIImage imageNamed:@"not_takedrug_remind"];
-    NSArray *valuesArray = @[@"常用就诊人",@"我的消息",@"我的预约",@"我的咨询",@"我的帖子",@"我的病历",@"我的收藏",@"吃药提醒"];
-    NSArray *imageArrays =@[not_common_seedoctor,not_my_message,not_my_registration,not_my_consult,not_my_invitation,not_my_case_history,not_my_collect,not_takedrug_remind];
+    
+    NSArray *valuesArray = @[@"常用就诊人"/*,@"我的消息",@"我的预约",@"我的咨询"*/,@"我的帖子",@"我的病历"/*,@"我的收藏"*/,@"吃药提醒"];
+    NSArray *imageArrays = @[not_common_seedoctor/*,not_my_message,not_my_registration,not_my_consult*/,not_my_invitation,not_my_case_history/*,not_my_collect*/,not_takedrug_remind];
     int h = 5;//控制行间距
     for(NSUInteger i = 0;i < valuesArray.count;i++){
         NSString *title = valuesArray[i];
@@ -143,32 +146,52 @@
 
 - (void)listDataClicked:(UITapGestureRecognizer *)sender{
     
-    NSInteger tag = sender.view.tag;
+//    NSInteger tag = sender.view.tag;
     NSString *title = sender.view.value;
     HeadViewController *tempVC;
-    switch (tag) {
-        case 0:
-            tempVC = CommonTreatmentViewController.new;
-            break;
-        case 1:
-            tempVC = MyNewsViewController.new;
-            break;
-        case 2:
-            tempVC = MyBespokeViewController.new;
-            break;
-        case 3:{
-            ChatMainViewController *chatMainViewController = [[ChatMainViewController alloc] initWithNibName:@"ChatMainViewController" bundle:nil];
-            chatMainViewController.title = @"咨询详情";
-            [self.navigationController pushViewController:chatMainViewController animated:YES];
-            return;
-        }
-        case 4:
-            return;
-        case 5:
-            tempVC = CaseHistoryViewController.new;
-            break;
+//    switch (tag) {
+//        case 0:
+//            tempVC = CommonTreatmentViewController.new;
+//            break;
+//        case 1:
+//            tempVC = MyNewsViewController.new;
+//            break;
+//        case 2:
+//            tempVC = MyBespokeViewController.new;
+//            break;
+//        case 3:{
+//            ChatMainViewController *chatMainViewController = [[ChatMainViewController alloc] initWithNibName:@"ChatMainViewController" bundle:nil];
+//            chatMainViewController.title = @"咨询详情";
+//            [self.navigationController pushViewController:chatMainViewController animated:YES];
+//            return;
+//        }
+//        case 4:
+//            return;
+//        case 5:
+//            tempVC = CaseHistoryViewController.new;
+//            break;
+//    }
+    if ([title isEqualToString:@"常用就诊人"]) {
+        tempVC = CommonTreatmentViewController.new;
     }
     
+    if ([title isEqualToString:@"我的帖子"]) {
+        tempVC = MyPostsViewController.new;
+    }
+    
+    if ([title isEqualToString:@"我的病历"]) {
+        tempVC = CaseHistoryViewController.new;
+    }
+    
+    if ([title isEqualToString:@"我的病历"]) {
+        tempVC = CaseHistoryViewController.new;
+    }
+    
+    if ([title isEqualToString:@"吃药提醒"]) {
+        tempVC = MedicineRemindViewController.new;
+    }
+    
+
     tempVC.title = title;
     [self.navigationController pushViewController:tempVC animated:YES];
     

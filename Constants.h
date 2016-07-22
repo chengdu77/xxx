@@ -104,24 +104,27 @@ typedef void (^ReturnDataBLock) (id data);
 
 #define kSUCCESSCODE  @"SUCCESS"
 #define kExpiredRequests @"E00007"
-#define kBaseURL @"http://manager.mslhealth.cn/client"
+//#define kBaseURL @"http://manager.mslhealth.cn/client"
+#define kBaseURL @"http://192.168.3.25:8080/client"
 
 #define kToken @"token"
 #define kHXLoginName @"HXLoginName"//环信用户
 #define kHXPassword @"HXPassword"//环信密码
 
+#define kEntId @"entId"
+
 #define kURL_login @"login"//1.登录接口
 #define kURL_token_logout @"token/logout"//退出登录
+#define kURL_register @"register"//用户注册／密码修改
+#define kURL_sms @"sms"//短信
 
-#define kInfonmationCenter @"InfonmationCenter"//消息中心
-#define kInfonmationCenterRedPoint @"InfonmationCenterRedPoint"//消息中心红点数
-#define kRefreshRedPointNotification @"RefreshRedPointNotification"
-#define kRefreshRedPointDataNotification @"RefreshRedPointDataNotification"
-
-#define kDeleteExpireInfonmationCenterDataMonth 3 //删除消息过期数据（3个月）
-
-#define kInfonmationCenter_Title @"InfonmationCenter_Ttitle"
-
+#define kURL_bbs_module @"bbs/module"//察看圈子主分类
+#define kURL_bbs_module_child @"bbs/module/child"//察看圈子子分类
+#define kURL_bbs_content_detail @"bbs/content/detail" //查看圈子里已发帖子
+#define kURL_bbs_content_list @"bbs/content/list" //查看圈子分类所有列表或者回贴列表
+#define kURL_bbs_content_list_page @"bbs/content/list/%@" //按页查看圈子分类发帖列表
+#define kURL_bbs_content_post @"token/bbs/content/post" //圈子发帖和回帖
+#define kURL_bbs_content_delete @"token/bbs/content/delete" //删除圈子已发帖子
 
 
 #endif

@@ -130,60 +130,46 @@
 #pragma mark 点击登陆按钮
 - (IBAction)loginActoin:(id)sender {
     
-    [self logining];
+    NSString *userName = userTextField.text;
+    NSString *password = passwordTextField.text;
+    if (userName.length == 0) {
+        [MBProgressHUD showError:@"请输入账号" toView:ShareAppDelegate.window];
+        return;
+    }
     
-//    NSString *userName = userTextField.text;
-//    NSString *password = passwordTextField.text;
-//    [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
-//    
-//    NSDictionary *parameters = @{@"mobile":userName,@"password":password};
-//    [ContactsRequest loginRequestParameters:parameters success:^(PiblicHttpResponse *response) {
-//        NSString *token = response.message[@"token"];
-//        if (token.length >0) {
-//            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-//            
-//            NSString *password = response.message[@"password"];
-//            NSString *loginName = response.message[@"loginName"];
-//            [[NSUserDefaults standardUserDefaults] setObject:loginName forKey:kHXLoginName];
-//            [[NSUserDefaults standardUserDefaults] setObject:password forKey:kHXPassword];
-//            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-//            [self initSystemDataRequest];
-//            [self requestIsAdminData];
-//        }else{
-//            [MBProgressHUD showError:@"登录失败" toView:ShareAppDelegate.window];
-//        }
-//     
-//    } fail:^(BOOL notReachable, NSString *desciption) {
-//        
-//        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
-//        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
-//    }];
+    if (password.length == 0) {
+        [MBProgressHUD showError:@"请输入密码" toView:ShareAppDelegate.window];
+        return;
+    }
     
-}
-
-#pragma mark 初始化消息通知数据
-- (void)initSystemDataRequest{
+    [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
     
-//    [ContactsRequest tokenUserMessageSetRequestParameters:nil success:^(PiblicHttpResponse *response) {
-//        
-//        NSDictionary *info = response.message;
-//        BOOL is_push = ([info[@"is_push"] integerValue]==1);
-//        BOOL is_ring = ([info[@"is_ring"] integerValue]==1);
-//        BOOL is_shake = ([info[@"is_shake"] integerValue]==1);
-//        
-//        [[NSUserDefaults standardUserDefaults] setBool:is_push forKey:kNotificationControlFlag];
-//        [[NSUserDefaults standardUserDefaults] setBool:is_ring forKey:kSoundControl];
-//        [[NSUserDefaults standardUserDefaults] setBool:is_shake forKey:kVibrateControl];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//        
-//
-//    } fail:^(BOOL notReachable, NSString *desciption) {
-//        
-//        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
-//        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
-//    }];
+    NSDictionary *parameters = @{@"mobile":userName,@"password":password};
+    [ContactsRequest loginRequestParameters:parameters success:^(PiblicHttpResponse *response) {
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        NSString *token = response.message[@"tip"];
+        if (token.length >0) {
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            NSString *password = response.message[@"password"];
+            NSString *loginName = response.message[@"loginName"];
+            [[NSUserDefaults standardUserDefaults] setObject:loginName forKey:kHXLoginName];
+            [[NSUserDefaults standardUserDefaults] setObject:password forKey:kHXPassword];
+            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [self logining];
+        }else{
+            [MBProgressHUD showError:@"登录失败" toView:ShareAppDelegate.window];
+        }
+     
+    } fail:^(BOOL notReachable, NSString *desciption) {
+        
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+    }];
+    
 }
 
 #pragma mark 登陆到主界面

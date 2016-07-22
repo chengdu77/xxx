@@ -10,4 +10,8 @@
 
 @interface RegisterUserInfosViewController : HeadViewController
 
+@property (nonatomic,strong) NSString *mobile;
+@property (nonatomic,strong) NSString *sms;
+@property (nonatomic,strong) NSString *password;
+
 @end

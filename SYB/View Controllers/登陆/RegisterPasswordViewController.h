@@ -10,4 +10,7 @@
 
 @interface RegisterPasswordViewController : HeadViewController
 
+@property (nonatomic,strong) NSString *mobile;
+@property (nonatomic,strong) NSString *sms;
+
 @end

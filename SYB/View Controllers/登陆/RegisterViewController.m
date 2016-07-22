@@ -10,7 +10,7 @@
 #import "RegisterPasswordViewController.h"
 
 
-@interface RegisterViewController (){
+@interface RegisterViewController ()<UITextFieldDelegate>{
     UITextField *phoneTextField;
     UITextField *codeTextField;
   
@@ -83,6 +83,7 @@
     UIView *testView = [self drawViewWithFrame:frame title:@"手机号" textField:&textField read:NO action:nil must:YES tag:0];
     [self.scrollView addSubview:testView];
     phoneTextField = textField;
+    phoneTextField.delegate = self;
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+10,self.viewWidth-140, 40);
     UIView *testView1 = [self drawViewWithFrame:frame title:@"验证码" textField:&textField read:NO action:nil must:YES tag:1];
@@ -117,16 +118,53 @@
     
     return btn;
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    if ([phoneTextField isEqual:textField]) {
+        if (range.location > 10) {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
 
 
 
 - (void)codeAction:(UIButton *)sender{
     
+    if (phoneTextField.text.length == 0) {
+        [MBProgressHUD showError:@"请输入手机号" toView:ShareAppDelegate.window];
+        return;
+    }
+    
+    NSDictionary *parameters = @{@"mobile":phoneTextField.text};
+    [ContactsRequest smsRequestParameters:parameters success:^(PiblicHttpResponse *response) {
+        NSLog(@"response:%@",response);
+        
+    } fail:^(BOOL notReachable, NSString *desciption) {
+        
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+    }];
+    
 }
 
 - (void)nextAction:(UIButton *)sender{
     
+    if (phoneTextField.text.length == 0) {
+        [MBProgressHUD showError:@"请输入手机号" toView:ShareAppDelegate.window];
+        return;
+    }
+    
+    if (codeTextField.text.length == 0) {
+        [MBProgressHUD showError:@"请输入验证码" toView:ShareAppDelegate.window];
+        return;
+    }
+    
     RegisterPasswordViewController *registerPasswordViewController = RegisterPasswordViewController.new;
+    registerPasswordViewController.mobile = phoneTextField.text;
+    registerPasswordViewController.sms = codeTextField.text;
     [self.navigationController pushViewController:registerPasswordViewController animated:YES];
     
 
