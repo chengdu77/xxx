@@ -11,7 +11,6 @@
 #import "CaseHistoryListViewController.h"
 
 @interface CaseHistoryViewController ()<UITableViewDataSource,UITableViewDelegate>{
-//    UISearchBar *_searchBar;
     UITableView *_tableView;
 
     NSArray *valueArray;
@@ -25,14 +24,19 @@
      self.hasBackWardFlag = YES;
     [super viewDidLoad];
     
-    valueArray = @[@{@"patientName":@"李磊",@"patientId":@"NO.634654654121"},@{@"patientName":@"韩梅梅",@"patientId":@"NO.6346689546124721"}];
-
     [self initThisView];
   
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self requestData];
 }
 
 - (void)initThisView{
@@ -55,8 +59,7 @@
 //    //            _searchBar.showsScopeBar = YES;
 ////    _searchBar.delegate = self;
 //    _searchBar.placeholder = @"请输入患者手机号码进行查询";
-    
-    [_tableView reloadData];
+
     
     UIView *btnView = [[UIView alloc] initWithFrame:CGRectMake(0,self.viewHeight -56,self.viewWidth,56)];
     [self.view addSubview:btnView];
@@ -107,10 +110,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.textLabel.text = info[@"patientName"];
+    cell.textLabel.text = info[@"s_user_name"];
     cell.textLabel.font = [UIFont fontWithName:kFontName size:16.0];
     
-    cell.detailTextLabel.text = info[@"patientId"];
+    cell.detailTextLabel.text = info[@"doctor_advice"];
     cell.detailTextLabel.font = [UIFont fontWithName:kFontName size:12.0];
     cell.detailTextLabel.textColor = kFontColor;
     
@@ -123,11 +126,64 @@
     [self.navigationController pushViewController:caseHistoryListViewController animated:YES];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        __block NSDictionary *info = valueArray[indexPath.row];
+        
+        [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
+        [ContactsRequest patientDeleteRecordRequestParameters:@{@"id":info[@"id"]} success:^(PiblicHttpResponse *response) {
+            [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+            NSString *tip = response.message[@"tip"];
+            if ([tip isEqualToString:@"成功"]) {
+                NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:valueArray];
+                [tmpArray removeObject:info];
+                valueArray = tmpArray;
+                [_tableView reloadData];
+            }
+       
+        } fail:^(BOOL notReachable, NSString *desciption) {
+            [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+            [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+        }];
+    }
+}
+
 - (void)addAction:(UIButton *)sender{
     
     AddCaseHistoryViewController *addCaseHistoryViewController = AddCaseHistoryViewController.new;
+    addCaseHistoryViewController.myInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kMyInfo];
     [self.navigationController pushViewController:addCaseHistoryViewController animated:YES];
     
+}
+
+- (void)requestData{
+    
+    [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
+    [ContactsRequest patientGetRecordsRequestParameters:nil success:^(PiblicHttpResponse *response) {
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        
+        valueArray = response.messages;
+        
+        [_tableView reloadData];
+        
+        if (valueArray.count == 0) {
+            [MBProgressHUD showError:@"没有病例数据" toView:ShareAppDelegate.window];
+        }
+    
+    } fail:^(BOOL notReachable, NSString *desciption) {
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+    }];
 }
 
 

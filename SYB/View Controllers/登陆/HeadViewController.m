@@ -701,6 +701,14 @@
     
     *textField = valueTextField;
     
+    if (must) {
+        UILabel *starLabel1 = [UILabel new];
+        starLabel1.frame = CGRectMake(self.viewWidth -15, 10,10, 20);
+        starLabel1.text = @"*";
+        starLabel1.textColor = [UIColor redColor];
+        [view addSubview:starLabel1];
+    }
+    
     if (read && action) {
         view.userInteractionEnabled = YES;
         UITapGestureRecognizer *viewTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:action];

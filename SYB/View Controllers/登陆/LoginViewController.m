@@ -149,8 +149,6 @@
         [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
         NSString *token = response.message[@"tip"];
         if (token.length >0) {
-            [[NSUserDefaults standardUserDefaults] setObject:token forKey:kToken];
-            [[NSUserDefaults standardUserDefaults] synchronize];
             
             NSString *password = response.message[@"password"];
             NSString *loginName = response.message[@"loginName"];
@@ -191,12 +189,25 @@
     [[NSUserDefaults standardUserDefaults] setBool:REMBERFLAG forKey:kREMBERFLAG];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    [self requestMyInfoData];
 }
 
 
-#pragma mark 获取登陆人的基本信息
-- (void)getMyInfo{
+- (void)requestMyInfoData{
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [ContactsRequest userMyInfoRequestParameters:nil success:^(PiblicHttpResponse *response) {
+            NSDictionary *myInfo = response.message;
+            if (myInfo.count >0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSUserDefaults standardUserDefaults] setObject:myInfo forKey:kMyInfo];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                });
+            }
+        } fail:^(BOOL notReachable, NSString *desciption) {
+     
+        }];
+    });
 }
 
 

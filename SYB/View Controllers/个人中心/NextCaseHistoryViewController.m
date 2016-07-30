@@ -17,6 +17,8 @@
     UIImage *defaultImage;
     NSMutableArray *imageArray;
     NSMutableArray *imageFiles;
+    
+    NSDictionary *previouData;
 }
 
 @end
@@ -138,37 +140,37 @@
             [self uploadImages];
             [self addDeleteView];
             
-//            NSDate *now = [NSDate new];
-//            NSDateFormatter *formatter = [NSDateFormatter new];
-//            [formatter setDateFormat:@"yyyyMMddHHmmss"];
-//            NSString *fileName = [NSString stringWithFormat:@"ZGRZ_%@",[formatter stringFromDate:now]];
-//            
-//            //           UIImage *theImage = [self imageByScalingToMaxSize:image];
-//            
-//            UploadImageParam *uploadParam = [UploadImageParam new];
-//            uploadParam.data =  UIImageJPEGRepresentation(image, 0.5);
-//            uploadParam.name = @"file";
-//            uploadParam.filename = fileName;
-//            uploadParam.mimeType = @"image/png";
-//            
-//            [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
-//            [ContactsRequest tokenUploadRequestParameters:nil uploadParam:uploadParam success:^(PiblicHttpResponse *response) {
-//                [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
-//                
-//                NSDictionary *info = response.message;
-//                NSString *path = info[@"path"];
-//                if (path.length >0) {
-//                    
-//                    [imageArray insertObject:image atIndex:imageArray.count-1];
-//                    [imageFiles addObject:path];
-//                    [self uploadImages];
-//                    [self addDeleteView];
-//                }
-//                
-//            } fail:^(BOOL notReachable, NSString *desciption) {
-//                [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
-//                [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
-//            }];
+            NSDate *now = [NSDate new];
+            NSDateFormatter *formatter = [NSDateFormatter new];
+            [formatter setDateFormat:@"yyyyMMddHHmmss"];
+            NSString *fileName = [NSString stringWithFormat:@"BL_%@",[formatter stringFromDate:now]];
+            
+            //           UIImage *theImage = [self imageByScalingToMaxSize:image];
+            
+            UploadImageParam *uploadParam = [UploadImageParam new];
+            uploadParam.data =  UIImageJPEGRepresentation(image, 0.5);
+            uploadParam.name = @"file";
+            uploadParam.filename = fileName;
+            uploadParam.mimeType = @"image/png";
+            
+            [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
+            [ContactsRequest tokenUploadRequestParameters:nil uploadParam:uploadParam success:^(PiblicHttpResponse *response) {
+                [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+                
+                NSDictionary *info = response.message;
+                NSString *path = info[@"path"];
+                if (path.length >0) {
+                    
+                    [imageArray insertObject:image atIndex:imageArray.count-1];
+                    [imageFiles addObject:path];
+                    [self uploadImages];
+                    [self addDeleteView];
+                }
+                
+            } fail:^(BOOL notReachable, NSString *desciption) {
+                [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+                [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+            }];
             
         }];
         
@@ -202,11 +204,38 @@
 
 - (void)sendInfo:(id)obj withRefreshSupperView:(ReturnDataBLock)block{
     self.block = block;
+    
+    previouData = obj;
 }
 
 - (void)completeAction:(UIButton *)sender{
     
-    [self backAction];
+    NSString *doctor_advice = textView.text;
+    if (doctor_advice.length == 0) {
+        [MBProgressHUD showError:@"请输入医嘱" toView:ShareAppDelegate.window];
+        return;
+    }
+    
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:previouData];
+    [data setObject:doctor_advice forKey:@"doctor_advice"];
+    if (imageFiles.count >0) {
+        NSString *path = [imageFiles componentsJoinedByString:@","];
+        [data setObject:path forKey:@"path"];
+    }
+    
+    [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
+    [ContactsRequest patientAddRecordRequestParameters:data success:^(PiblicHttpResponse *response) {
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        NSString *tip = response.message[@"tip"];
+        if ([tip isEqualToString:@"成功"]) {
+            [self backAction];
+            self.block(nil);
+        }
+        
+    } fail:^(BOOL notReachable, NSString *desciption) {
+        [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+        [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+    }];
 }
 
 

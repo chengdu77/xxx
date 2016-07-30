@@ -10,4 +10,5 @@
 
 @interface ModifyUserInfoViewController : HeadViewController
 
+@property (nonatomic,strong) NSDictionary *myInfo;
 @end

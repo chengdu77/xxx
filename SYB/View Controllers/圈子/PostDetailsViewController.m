@@ -169,7 +169,7 @@
 - (void)requestListData{
     
     [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
-    NSDictionary *parameters = @{@"Id":self.Id};
+    NSDictionary *parameters = @{@"Id":self.Id,@"page":@(1)};
     [ContactsRequest bbsContentDetailRequestParameters:parameters success:^(PiblicHttpResponse *response) {
         [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
         listArray = response.messages;

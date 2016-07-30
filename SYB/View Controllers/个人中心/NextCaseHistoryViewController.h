@@ -10,7 +10,6 @@
 
 @interface NextCaseHistoryViewController : HeadViewController
 
-
 @property (nonatomic,copy) ReturnDataBLock block;
 
 - (void)sendInfo:(id)obj withRefreshSupperView:(ReturnDataBLock)block;

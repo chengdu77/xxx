@@ -96,7 +96,7 @@
         if (circleTitle.count >0) {
        
         }else{
-            [MBProgressHUD showError:@"登录失败" toView:ShareAppDelegate.window];
+            [MBProgressHUD showError:@"没有圈子数据" toView:ShareAppDelegate.window];
         }
         
     } fail:^(BOOL notReachable, NSString *desciption) {
@@ -108,7 +108,7 @@
 
 - (void)requestBbsModuleChildDataWith:(NSString *)moduleId{
     [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSDictionary *parameters = @{@"moduleId":moduleId};
         [ContactsRequest bbsModuleChildRequestParameters:parameters success:^(PiblicHttpResponse *response) {
             
@@ -130,7 +130,7 @@
                 });
         }];
         
-//    });
+    });
 }
 
 - (void)initSlideView:(NSArray *)tempArray{

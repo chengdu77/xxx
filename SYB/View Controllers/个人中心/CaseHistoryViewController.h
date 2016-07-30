@@ -10,4 +10,5 @@
 
 @interface CaseHistoryViewController : HeadViewController
 
+@property (nonatomic,strong) NSDictionary *myInfo;
 @end

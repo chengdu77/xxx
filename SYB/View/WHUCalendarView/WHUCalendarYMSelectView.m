@@ -33,7 +33,7 @@
 }
 
 -(void)setupViews{
-    _yearRange=20;
+    _yearRange=80;
     _pickerView=[[UIPickerView alloc] init];
     _pickerView.translatesAutoresizingMaskIntoConstraints=NO;
     [self addSubview:_pickerView];
@@ -54,7 +54,7 @@
 
 
 -(NSString*)selectdDateStr{
-  NSInteger year=2015-_yearRange+[_pickerView selectedRowInComponent:0];
+  NSInteger year=self.curYear-_yearRange+[_pickerView selectedRowInComponent:0]+1;
   NSInteger month=[_pickerView selectedRowInComponent:1]+1;
   return [NSString stringWithFormat:@"%ld年%ld月",(long)year,(long)month];
 }
@@ -67,7 +67,7 @@
 // pickerView 每列个数
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (component == 0) {
-        return 41;
+        return _yearRange;
     }
     
     return 12;
@@ -92,8 +92,9 @@
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (component == 0) {
-        row=2015-_yearRange+row;
-        return  [NSString stringWithFormat:@"%ld年",(long)row];
+
+        row=self.curYear-_yearRange+row;
+        return  [NSString stringWithFormat:@"%ld年",(long)row+1];
     } else {
         return  [NSString stringWithFormat:@"%ld月",(long)row+1];
     }

@@ -14,6 +14,7 @@
 #import "ExpertViewController.h"
 #import "IQTextView.h"
 #import "NextCaseHistoryViewController.h"
+#import "UIView+BindValues.h"
 
 @interface AddCaseHistoryViewController (){
     
@@ -176,9 +177,11 @@
             
             CommonTreatmentViewController *commonTreatmentViewController = CommonTreatmentViewController.new;
             commonTreatmentViewController.title = @"常用就诊人";
+            commonTreatmentViewController.myInfo = self.myInfo;
             commonTreatmentViewController.style = CommonTreatmentStyleChoose;
             [commonTreatmentViewController sendInfo:nil withRefreshSupperView:^(id data) {
-                textField.text = data;
+                textField.text = data[@"realname"];
+                textField.value = data[@"id"];
             }];
             [self.navigationController pushViewController:commonTreatmentViewController animated:YES];
             break;
@@ -186,7 +189,8 @@
         case 1:{
             
             calendarPopView.onDateSelectBlk=^(NSDate* date){
-                if (date < [NSDate date]){
+                NSDate *today = [NSDate date];
+                if ([date compare:today] == NSOrderedAscending){
                     [MBProgressHUD showError:@"请有效就诊时间!" toView:ShareAppDelegate.window];
                     return;
                 }
@@ -216,6 +220,7 @@
             expertViewController.style = ExpertStyleChoose;
             [expertViewController sendInfo:nil withRefreshSupperView:^(id data) {
                 textField.text = data;
+        
             }];
             [self.navigationController pushViewController:expertViewController animated:YES];
             
@@ -232,24 +237,36 @@
 //    
 //    isNextPage = YES;
     
+    NSString *p_user_id = [(UITextField *)textFieldArray[0] value];
+    if (p_user_id.length ==0) {
+        [MBProgressHUD showError:@"请选择就诊人" toView:ShareAppDelegate.window];
+        return;
+    }
+    NSString *visit_time = [(UITextField *)textFieldArray[1] text];
+    if (visit_time.length ==0) {
+        [MBProgressHUD showError:@"请选择就诊时间" toView:ShareAppDelegate.window];
+        return;
+    }
+    
+    NSString *h_office_name =  [(UITextField *)textFieldArray[2] text];
+    if (h_office_name.length ==0) {
+        [MBProgressHUD showError:@"请选择科室" toView:ShareAppDelegate.window];
+        return;
+    }
+    NSString *s_user_name =  [(UITextField *)textFieldArray[3] text];
+    if (s_user_name.length ==0) {
+        [MBProgressHUD showError:@"请选择医生" toView:ShareAppDelegate.window];
+        return;
+    }
+    
     NextCaseHistoryViewController *nextCaseHistoryViewController = NextCaseHistoryViewController.new;
-    [nextCaseHistoryViewController sendInfo:nil withRefreshSupperView:^(id data) {
+    [nextCaseHistoryViewController sendInfo:@{@"p_user_id":p_user_id,@"visit_time":visit_time,@"h_office_name":h_office_name,@"s_user_name":s_user_name} withRefreshSupperView:^(id data) {
         [self backAction];
     }];
     [self.navigationController pushViewController:nextCaseHistoryViewController animated:YES];
 }
 
-//- (void)backAction{
-//    
-//    if (isNextPage) {
-//        CGPoint point = CGPointZero;
-//        point.y = -64;
-//        [self.scrollView setContentOffset:point animated:YES];
-//        isNextPage = NO;
-//    }else{
-//        [super backAction];
-//    }
-//}
+
 
 
 

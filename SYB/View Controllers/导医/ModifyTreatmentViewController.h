@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSUInteger, TreatmentOperationMode) {
     TreatmentOperationModeInsert = 0, //新增
-    TreatmentOperationModeModify  //修改
+    TreatmentOperationModeModify,  //修改
+    TreatmentOperationModeMainModify  //主账号修改
 };
 
 typedef void (^TreatmentRefreshSupperViewBLock) (id data);

@@ -104,14 +104,15 @@ typedef void (^ReturnDataBLock) (id data);
 
 #define kSUCCESSCODE  @"SUCCESS"
 #define kExpiredRequests @"E00007"
-//#define kBaseURL @"http://manager.mslhealth.cn/client"
-#define kBaseURL @"http://192.168.3.25:8080/client"
+#define kBaseURL @"http://manager.mslhealth.cn/client"
+//#define kBaseURL @"http://192.168.3.25:8080/client"
 
 #define kToken @"token"
 #define kHXLoginName @"HXLoginName"//环信用户
 #define kHXPassword @"HXPassword"//环信密码
 
 #define kEntId @"entId"
+#define kMyInfo @"MyInfo"
 
 #define kURL_login @"login"//1.登录接口
 #define kURL_token_logout @"token/logout"//退出登录
@@ -126,6 +127,21 @@ typedef void (^ReturnDataBLock) (id data);
 #define kURL_bbs_content_post @"token/bbs/content/post" //圈子发帖和回帖
 #define kURL_bbs_content_delete @"token/bbs/content/delete" //删除圈子已发帖子
 
+#define kURL_user_myInfo @"token/user/myInfo" //登陆用户信息
+#define kURL_user_updatePassword @"token/user/updatePassword" //修改用户密码
+#define kURL_user_updateInfo @"token/user/updateInfo" //修改用户信息
+#define kURL_user_updateIcon @"token/user/updateIcon" //修改用户头像
+#define kURL_user_getContacts @"token/user/getContacts" //获取用户联系人列表
+#define kURL_user_addContact @"token/user/addContact" //新增联系人
+#define kURL_user_updateContact @"token/user/updateContact" //修改联系人
+#define kURL_user_deleteContact @"token/user/deleteContact" //删除联系人
+
+#define kURL_patient_addRecord @"token/patient/addRecord" //新建病历
+#define kURL_patient_getRecords @"token/patient/getRecords" //获取病历列表
+#define kURL_patient_getRecord @"token/patient/getRecord" //获取病历详情
+#define kURL_patient_deleteRecord @"token/patient/deleteRecord" //删除病历
+
+#define kURL_bbs_content_my @"token/bbs/my" //获取我的主题(发帖)和回帖
 
 #endif
 

@@ -17,7 +17,9 @@
 #import "MyPostsViewController.h"
 #import "MedicineRemindViewController.h"
 
-@interface UserCenterViewController ()
+@interface UserCenterViewController (){
+    NSDictionary *myInfo;
+}
 
 @end
 
@@ -28,7 +30,10 @@
     [super viewDidLoad];
     self.title = @"我";
     
+    myInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kMyInfo];
+    
     [self initThisView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,17 +83,19 @@
     headView.backgroundColor = [UIColor whiteColor];
     
     UIImageView *userImageView = [[UIImageView alloc] initWithFrame:CGRectMake(13,(CGRectGetHeight(frame) -50)/2,50,50)];
-    userImageView.image = [UIImage imageNamed:@"image_icon"];
+    
+    [self roundImageView:userImageView withColor:nil];
+    [self setImageWithURL:myInfo[@"icon"] imageView:userImageView placeholderImage:[UIImage imageNamed:@"image_icon"]];
     [headView addSubview:userImageView];
 
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(userImageView.frame)+5,CGRectGetHeight(frame)/2 -15,self.viewWidth -80 ,20)];
-    nameLabel.text = @"徐小鱼";
+    nameLabel.text = myInfo[@"realname"];
     nameLabel.textColor = kALL_COLOR;
     nameLabel.font = [UIFont fontWithName:kFontName size:16];
     [headView addSubview:nameLabel];
     
     UILabel *loginIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(userImageView.frame)+5,CGRectGetMaxY(nameLabel.frame),self.viewWidth -80 ,20)];
-    loginIdLabel.text = @"登录账号:13801380000";
+    loginIdLabel.text = [NSString stringWithFormat:@"登录账号:%@",myInfo[@"mobile"]];
     loginIdLabel.textColor = kFontColor;
     loginIdLabel.font = [UIFont fontWithName:kFontName size:12];
     [headView addSubview:loginIdLabel];
@@ -139,6 +146,7 @@
 - (void)headViewClicked:(UITapGestureRecognizer *)sender{
     
     ModifyUserInfoViewController *modifyUserInfoViewController = ModifyUserInfoViewController.new;
+    modifyUserInfoViewController.myInfo = myInfo;
     [self.navigationController pushViewController:modifyUserInfoViewController animated:YES];
 }
 
@@ -149,30 +157,11 @@
 //    NSInteger tag = sender.view.tag;
     NSString *title = sender.view.value;
     HeadViewController *tempVC;
-//    switch (tag) {
-//        case 0:
-//            tempVC = CommonTreatmentViewController.new;
-//            break;
-//        case 1:
-//            tempVC = MyNewsViewController.new;
-//            break;
-//        case 2:
-//            tempVC = MyBespokeViewController.new;
-//            break;
-//        case 3:{
-//            ChatMainViewController *chatMainViewController = [[ChatMainViewController alloc] initWithNibName:@"ChatMainViewController" bundle:nil];
-//            chatMainViewController.title = @"咨询详情";
-//            [self.navigationController pushViewController:chatMainViewController animated:YES];
-//            return;
-//        }
-//        case 4:
-//            return;
-//        case 5:
-//            tempVC = CaseHistoryViewController.new;
-//            break;
-//    }
     if ([title isEqualToString:@"常用就诊人"]) {
-        tempVC = CommonTreatmentViewController.new;
+        
+        CommonTreatmentViewController *commonTreatmentViewController = CommonTreatmentViewController.new;
+        commonTreatmentViewController.myInfo = myInfo;
+        tempVC = commonTreatmentViewController;
     }
     
     if ([title isEqualToString:@"我的帖子"]) {
@@ -180,7 +169,10 @@
     }
     
     if ([title isEqualToString:@"我的病历"]) {
-        tempVC = CaseHistoryViewController.new;
+        
+        CaseHistoryViewController *caseHistoryViewController = CaseHistoryViewController.new;
+        caseHistoryViewController.myInfo = myInfo;
+        tempVC = caseHistoryViewController;
     }
     
     if ([title isEqualToString:@"我的病历"]) {

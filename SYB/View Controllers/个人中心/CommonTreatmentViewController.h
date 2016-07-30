@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, CommonTreatmentStyle) {
 
 @interface CommonTreatmentViewController : HeadViewController
 
-
+@property (nonatomic,strong) NSDictionary *myInfo;
 @property (nonatomic, assign) CommonTreatmentStyle style;
 @property (nonatomic,copy) ReturnDataBLock block;
 

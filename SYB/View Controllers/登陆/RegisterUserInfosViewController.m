@@ -7,18 +7,21 @@
 //
 
 #import "RegisterUserInfosViewController.h"
-#import "ZYRadioButton.h"
 #import "WHUCalendarPopView.h"
 #import "TypeListViewController.h"
+#import "QRadioButton.h"
 
-@interface RegisterUserInfosViewController (){
+@interface RegisterUserInfosViewController ()<QRadioButtonDelegate,UITextFieldDelegate>{
     UITextField *nameTextField;
     UITextField *nationTextField;
     UITextField *identityNumberTextField;
     UITextField *birthdayTextField;
     UITextField *addressTextField;
     
-      WHUCalendarPopView *calendarPopView;
+    WHUCalendarPopView *calendarPopView;
+    
+    NSNumber *sex;
+    NSString *id_type;
 }
 
 @end
@@ -97,9 +100,22 @@
     titleLabel.font = [UIFont fontWithName:kFontName size:14];
     [view1 addSubview:titleLabel];
     
-    UIView *radioView = [self addRadioViewWithFrame:CGRectMake(CGRectGetMaxX(titleLabel.frame)+2,(CGRectGetHeight(frame) -20)/2,CGRectGetWidth(frame)-77, 20) items:@[@"男",@"女"] groupId:@"0"];
+    QRadioButton *radio1 = [[QRadioButton alloc] initWithDelegate:self groupId:@"0"];
+    radio1.frame = CGRectMake(CGRectGetMaxX(titleLabel.frame)+2, 10, 50, 20);
+    [radio1 setTitle:@"男" forState:UIControlStateNormal];
+    [radio1 setTitleColor:kFontColor_Contacts forState:UIControlStateNormal];
+    [radio1.titleLabel setFont:[UIFont fontWithName:kFontName size:14]];
+    [view1 addSubview:radio1];
+    radio1.tag = 100;
+    [radio1 setChecked:YES];
     
-    [view1 addSubview:radioView];
+    QRadioButton *radio2 = [[QRadioButton alloc] initWithDelegate:self groupId:@"0"];
+    radio2.frame = CGRectMake(150, 10, 50, 20);
+    [radio2 setTitle:@"女" forState:UIControlStateNormal];
+    [radio2 setTitleColor:kFontColor_Contacts forState:UIControlStateNormal];
+    [radio2.titleLabel setFont:[UIFont fontWithName:kFontName size:14]];
+    [view1 addSubview:radio2];
+    radio2.tag = 101;
     [self.scrollView addSubview:view1];
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+1,self.viewWidth, 40);
@@ -119,25 +135,38 @@
     titleLabel2.font = [UIFont fontWithName:kFontName size:14];
     [view2 addSubview:titleLabel2];
     
-    UIView *credentialView = [self addRadioViewWithFrame:CGRectMake(CGRectGetMaxX(titleLabel2.frame)+2,(CGRectGetHeight(frame) -20)/2,CGRectGetWidth(frame)-77, 20) items:@[@"身份证",@"其它"] groupId:@"1"];
+    QRadioButton *radio3 = [[QRadioButton alloc] initWithDelegate:self groupId:@"1"];
+    radio3.frame = CGRectMake(CGRectGetMaxX(titleLabel2.frame)+2, 10, 80, 20);
+    [radio3 setTitle:@"身份证" forState:UIControlStateNormal];
+    [radio3 setTitleColor:kFontColor_Contacts forState:UIControlStateNormal];
+    [radio3.titleLabel setFont:[UIFont fontWithName:kFontName size:14]];
+    [view2 addSubview:radio3];
+    radio3.tag = 103;
+    [radio3 setChecked:YES];
     
-    [view2 addSubview:credentialView];
+    QRadioButton *radio4 = [[QRadioButton alloc] initWithDelegate:self groupId:@"1"];
+    radio4.frame = CGRectMake(150, 10, 80, 20);
+    [radio4 setTitle:@"其它" forState:UIControlStateNormal];
+    [radio4 setTitleColor:kFontColor_Contacts forState:UIControlStateNormal];
+    [radio4.titleLabel setFont:[UIFont fontWithName:kFontName size:14]];
+    [view2 addSubview:radio4];
+    radio4.tag = 104;
+    
     [self.scrollView addSubview:view2];
-    
-
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+1,self.viewWidth, 40);
     testView = [self drawViewWithFrame:frame title:@"证件号码" textField:&textField read:NO action:nil must:YES tag:302];
     [self.scrollView addSubview:testView];
     identityNumberTextField = textField;
+    identityNumberTextField.delegate = self;
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+1,self.viewWidth, 40);
-    testView = [self drawViewWithFrame:frame title:@"出生年月" textField:&textField read:YES action:@selector(birthdayAction:) must:YES tag:303];
+    testView = [self drawViewWithFrame:frame title:@"出生年月" textField:&textField read:YES action:@selector(birthdayAction:) must:NO tag:303];
     [self.scrollView addSubview:testView];
     birthdayTextField = textField;
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+1,self.viewWidth, 40);
-    testView = [self drawViewWithFrame:frame title:@"联系地址" textField:&textField read:NO action:nil must:YES tag:304];
+    testView = [self drawViewWithFrame:frame title:@"联系地址" textField:&textField read:NO action:nil must:NO tag:304];
     [self.scrollView addSubview:testView];
     addressTextField = textField;
     
@@ -147,6 +176,17 @@
     [okBtn addTarget:self action:@selector(okAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:okBtn];
     
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    if ([identityNumberTextField isEqual:textField] && [id_type isEqualToString:@"身份证"]) {
+        if (range.location > 17) {
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 - (UIButton *)addUIButtonWithFrame:(CGRect)frame title:(NSString *)title{
@@ -164,41 +204,6 @@
     btn.layer.borderWidth = .5;
     
     return btn;
-}
-
-- (UIView *)addRadioViewWithFrame:(CGRect)frame items:(NSArray *)items groupId:(NSString *)groupId{
-    
-    UIView *containerView = [[UIView alloc] initWithFrame:frame];
-    //初始化单选按钮控件
-    ZYRadioButton *rb1 = [[ZYRadioButton alloc] initWithGroupId:groupId index:0];
-    ZYRadioButton *rb2 = [[ZYRadioButton alloc] initWithGroupId:groupId index:1];
-    
-    //设置Frame
-    rb1.frame = CGRectMake(10,0,20,20);
-    
-    //初始化第一个单选按钮的UILabel
-    UILabel *label1 =[[UILabel alloc] initWithFrame:CGRectMake(40, 0, 60, 20)];
-    label1.text = items[0];
-    label1.textColor = kFontColor_Contacts;
-    label1.font = [UIFont fontWithName:kFontName size:14];
-    [containerView addSubview:label1];
-    
-    rb2.frame = CGRectMake(110,0,20,20);
-    
-    UILabel *label2 =[[UILabel alloc] initWithFrame:CGRectMake(140,0, 60, 20)];
-    label2.text = items[1];
-    label2.textColor = kFontColor_Contacts;
-    label2.font = [UIFont fontWithName:kFontName size:14];
-    [containerView addSubview:label2];
-    
-    //按照GroupId添加观察者
-    [ZYRadioButton addObserverForGroupId:groupId observer:self];
-    
-    //添加到视图容器
-    [containerView addSubview:rb1];
-    [containerView addSubview:rb2];
-    
-    return containerView;
 }
 
 //代理方法
@@ -232,9 +237,58 @@
     [calendarPopView show];
 }
 
+- (void)didSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId{
+    
+    if ([groupId isEqualToString:@"0"]) {
+        if (radio.tag == 100) {
+            sex = @(1);//1:男 2:女
+        }else{
+            sex = @(2);
+        }
+    }else{
+        id_type = radio.titleLabel.text;
+    }
+}
+
 - (void)okAction:(UIButton *)sender{
     
-    NSDictionary *parameters = @{@"mobile":self.mobile,@"password":self.password,@"sms":self.sms};
+    NSString *realname = nameTextField.text;
+    if (realname.length == 0) {
+        [MBProgressHUD showError:@"请输入姓名" toView:ShareAppDelegate.window];
+        return;
+    }
+    NSString *id_card = identityNumberTextField.text;
+    if (id_card.length == 0) {
+        [MBProgressHUD showError:@"请输入证件号码" toView:ShareAppDelegate.window];
+        return;
+    }
+
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:self.mobile forKey:@"mobile"];
+    [parameters setObject:self.sms forKey:@"sms"];
+    [parameters setObject:self.password forKey:@"password"];
+    
+    [parameters setObject:realname forKey:@"realname"];
+    [parameters setObject:id_card forKey:@"id_card"];
+    [parameters setObject:id_type forKey:@"id_type"];
+    [parameters setObject:sex forKey:@"sex"];
+    
+    NSString *ent_id = [[NSUserDefaults standardUserDefaults] objectForKey:kEntId];
+    [parameters setObject:ent_id forKey:@"ent_id"];
+    
+    if (nationTextField.text.length >0) {
+        [parameters setObject:nationTextField.text forKey:@"nation"];
+    }
+    
+    if (addressTextField.text.length >0) {
+        [parameters setObject:addressTextField.text forKey:@"address"];
+    }
+    
+    
+    if (birthdayTextField.text.length >0) {
+        [parameters setObject:birthdayTextField.text forKey:@"birthday"];
+    }
+
     [ContactsRequest registerRequestParameters:parameters success:^(PiblicHttpResponse *response) {
         NSString *token = response.message[@"tip"];
         if (token.length >0) {
@@ -245,6 +299,8 @@
             UIViewController *targetVC = [storyboard instantiateInitialViewController];
             UIWindow *win = [[[UIApplication sharedApplication] delegate] window];
             win.rootViewController = targetVC;
+            
+            [self requestMyInfoData];
 
         }else{
             [MBProgressHUD showError:@"登录失败" toView:ShareAppDelegate.window];
@@ -256,12 +312,24 @@
         [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
     }];
     
-
-    
-
-
 }
 
-
+- (void)requestMyInfoData{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [ContactsRequest userMyInfoRequestParameters:nil success:^(PiblicHttpResponse *response) {
+            NSDictionary *myInfo = response.message;
+            if (myInfo.count >0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSUserDefaults standardUserDefaults] setObject:myInfo forKey:kMyInfo];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                });
+            }
+        } fail:^(BOOL notReachable, NSString *desciption) {
+            
+        }];
+    });
+    
+}
 
 @end

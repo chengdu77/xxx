@@ -13,6 +13,7 @@
 @optional
 - (void)deleteAction:(id)object withPageTag:(NSInteger)page;
 - (UIView *)drawTableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
+- (CGFloat)drawTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 @required
 - (UITableViewCell *)fillCellDataTableView:(UITableView *)tableView withObject:(id)object withPageTag:(NSInteger)page;
 

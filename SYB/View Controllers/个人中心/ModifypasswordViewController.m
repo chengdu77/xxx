@@ -7,6 +7,7 @@
 //
 
 #import "ModifypasswordViewController.h"
+#import "AppDelegate.h"
 
 @interface ModifypasswordViewController (){
     UITextField *oldPasswordTextField;
@@ -48,11 +49,12 @@
     [tempView1 addSubview:titleLabel1];
     
     oldPasswordTextField = [UITextField new];
-    oldPasswordTextField.frame = CGRectMake(70, 18,self.viewWidth-90, 20);
+    oldPasswordTextField.frame = CGRectMake(90, 18,self.viewWidth-90, 20);
     oldPasswordTextField.textColor = kFontColor_Contacts;
     oldPasswordTextField.font = [UIFont fontWithName:kFontName size:14];
     oldPasswordTextField.placeholder = @"请输入您的老密码";
     [tempView1 addSubview:oldPasswordTextField];
+    oldPasswordTextField.secureTextEntry = YES;
     
     [self.scrollView addSubview:tempView1];
     
@@ -70,11 +72,12 @@
     [tempView2 addSubview:titleLabel2];
     
     newPasswordTextField = [UITextField new];
-    newPasswordTextField.frame = CGRectMake(70, 18,self.viewWidth-90, 20);
+    newPasswordTextField.frame = CGRectMake(90, 18,self.viewWidth-90, 20);
     newPasswordTextField.textColor = kFontColor_Contacts;
     newPasswordTextField.font = [UIFont fontWithName:kFontName size:14];
     newPasswordTextField.placeholder = @"请输入6位以上的字母或者数字";
     [tempView2 addSubview:newPasswordTextField];
+    newPasswordTextField.secureTextEntry = YES;
     
     [self.scrollView addSubview:tempView2];
     
@@ -86,18 +89,19 @@
     tempView3.frame = frame;
     
     UILabel *titleLabel3 = [UILabel new];
-    titleLabel3.frame = CGRectMake(15, 18,50, 20);
+    titleLabel3.frame = CGRectMake(15, 18,80, 20);
     titleLabel3.text = @"确认新密码";
     titleLabel3.textColor = kFontColor_Contacts;
     titleLabel3.font = [UIFont fontWithName:kFontName size:14];
     [tempView3 addSubview:titleLabel3];
     
     newPasswordTextField2 = [UITextField new];
-    newPasswordTextField2.frame = CGRectMake(70, 18,self.viewWidth-90, 20);
+    newPasswordTextField2.frame = CGRectMake(90, 18,self.viewWidth-90, 20);
     newPasswordTextField2.textColor = kFontColor_Contacts;
     newPasswordTextField2.font = [UIFont fontWithName:kFontName size:14];
     newPasswordTextField2.placeholder = @"请输入6位以上的字母或者数字";
     [tempView3 addSubview:newPasswordTextField2];
+    newPasswordTextField2.secureTextEntry = YES;
     
     [self.scrollView addSubview:tempView3];
     
@@ -141,6 +145,19 @@
         [newPasswordTextField2 becomeFirstResponder];
         return;
     }
+    
+    NSString *mobile = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERNAME];
+    
+    [ContactsRequest userUpdatePasswordRequestParameters:@{@"mobile":mobile,@"password":newStr,@"oldPassword":oldStr} success:^(PiblicHttpResponse *response) {
+        NSString *tip = response.message[@"tip"];
+        if ([tip isEqualToString:@"成功"]) {
+            
+            AppDelegate *app = ShareAppDelegate;
+            [app showLoginViewController];
+        }
+    } fail:^(BOOL notReachable, NSString *desciption) {
+         NSLog(@"desciption:%@",desciption);
+    }];
 
 }
 

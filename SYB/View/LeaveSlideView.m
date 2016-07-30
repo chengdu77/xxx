@@ -345,8 +345,14 @@
     return tempArray.count;
 }
 
--(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return _cellHeight;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_cellHeight == 0) {
+        if (_delegate && [_delegate respondsToSelector:@selector(drawTableView:heightForRowAtIndexPath:)]) {
+            return [_delegate drawTableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+    }
+    
+     return _cellHeight;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

@@ -20,7 +20,7 @@
 //初始化配置参数
 + (void)initialize{
     
-    NSDictionary *data = @{kEntId:@"f37231af99384af2bcfb6c11fe12f290",
+    NSDictionary *data = @{kEntId:@"f370e8b592504b1495ea51b4d1643466",
                            };
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:data];
@@ -38,10 +38,13 @@
     
     
 
-
 //    BOOL IsFirstLoginFlag = [[NSUserDefaults standardUserDefaults] boolForKey:kIsFirstLoginFlag];
 //    if (IsFirstLoginFlag) {
-        [self showLoginViewController];
+    [self showLoginViewController];
+    
+    
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(showLoginViewController) name:kExpiredRequestsNotification object:nil];
     
     return YES;
 }

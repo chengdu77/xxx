@@ -9,7 +9,7 @@
 #import "RegisterPasswordViewController.h"
 #import "RegisterUserInfosViewController.h"
 
-@interface RegisterPasswordViewController (){
+@interface RegisterPasswordViewController ()<UITextFieldDelegate>{
     UITextField *passwordTextField;
     UITextField *passwordTextField2;
 }
@@ -75,12 +75,14 @@
     [self.scrollView addSubview:testView];
     textField.secureTextEntry = YES;
     passwordTextField = textField;
+    passwordTextField.delegate = self;
     
     frame = CGRectMake(0,CGRectGetMaxY(frame)+10,self.viewWidth, 40);
     UIView *testView1 = [self drawViewWithFrame:frame title:@"确认密码" textField:&textField read:NO action:nil must:YES tag:1];
     [self.scrollView addSubview:testView1];
     textField.secureTextEntry = YES;
     passwordTextField2 = textField;
+    passwordTextField2.delegate = self;
     
     frame = CGRectMake(10,CGRectGetMaxY(frame)+25,self.viewWidth-20, 40);
     UIButton *nextBtn = [self addUIButtonWithFrame:frame title:@"下一步"];
@@ -106,15 +108,24 @@
     return btn;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    if (range.location > 19) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (void)nextAction:(UIButton *)sender{
     
-    if (passwordTextField.text.length == 0) {
-        [MBProgressHUD showError:@"请输入密码" toView:ShareAppDelegate.window];
+    if (passwordTextField.text.length < 6) {
+        [MBProgressHUD showError:@"密码位数不能小于6位" toView:ShareAppDelegate.window];
         return;
     }
     
-    if (passwordTextField2.text.length == 0) {
-        [MBProgressHUD showError:@"请输入确认密码" toView:ShareAppDelegate.window];
+    if (passwordTextField2.text.length < 6) {
+        [MBProgressHUD showError:@"确认密码位数能不小于6位" toView:ShareAppDelegate.window];
         return;
     }
     

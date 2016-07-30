@@ -42,7 +42,10 @@
     UIView *txView = [[UIView alloc] initWithFrame:frame];
     txView.backgroundColor = [UIColor whiteColor];
     self.txImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.viewWidth-55)/2, (80-55)/2,55, 55)];
-    self.txImageView.image = [UIImage imageNamed:@"image_icon"];
+
+    [self roundImageView:self.txImageView withColor:nil];
+    [self setImageWithURL:self.myInfo[@"icon"] imageView:self.txImageView placeholderImage:[UIImage imageNamed:@"image_icon"]];
+    
     [txView addSubview:self.txImageView];
     
     self.txImageView.tag = kTXImageViewTag;
@@ -110,46 +113,49 @@
     
     [[MyPhotographViewController shareInstance] viewController:self withBlock:^(UIImage *image) {
         
-//        NSDate *now = [NSDate new];
-//        NSDateFormatter *formatter = [NSDateFormatter new];
-//        [formatter setDateFormat:@"yyyyMMddHHmmss"];
-//        NSString *fileName = [NSString stringWithFormat:@"IMG_%@",[formatter stringFromDate:now]];
+        NSDate *now = [NSDate new];
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyyMMddHHmmss"];
+        NSString *fileName = [NSString stringWithFormat:@"TX_%@",[formatter stringFromDate:now]];
         
         UIImage *theImage = [self imageWithImageSimple:image scaledToSize:CGSizeMake(kTXImageViewWidth,kTXImageViewWidth)];
         
-        self.txImageView.image = theImage;
-        [self roundImageView:self.txImageView withColor:nil];
+
+        UploadImageParam *uploadParam = [UploadImageParam new];
+        uploadParam.data =  UIImagePNGRepresentation(theImage);
+        uploadParam.name = @"file";
+        uploadParam.filename = fileName;
+        uploadParam.mimeType = @"image/png";
         
-//        UploadImageParam *uploadParam = [UploadImageParam new];
-//        uploadParam.data =  UIImagePNGRepresentation(theImage);
-//        uploadParam.name = @"file";
-//        uploadParam.filename = fileName;
-//        uploadParam.mimeType = @"image/png";
-//        
-//        [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
-//        [ContactsRequest tokenUploadRequestParameters:nil uploadParam:uploadParam success:^(PiblicHttpResponse *response) {
-//            //            [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
-//            
-//            NSDictionary *info = response.message;
-//            NSString *path = info[@"path"];
-//            if (path.length >0) {
-//                
-//                UITextView *tempTextView = [self.scrollView viewWithTag:kTextViewTag];
-//                NSString *desc = tempTextView.value;
-//                NSString *mobile = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERNAME];
-//                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:@{@"icon":path,@"mobile":mobile}];
-//                
-//                if (desc) {
-//                    [userInfo setObject:@"des" forKey:desc];
-//                }
-//                [self userUpdateUser:userInfo image:image];
-//            }
-//            
-//        } fail:^(BOOL notReachable, NSString *desciption) {
-//            [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
-//            [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
-//        }];
-        
+        [MBProgressHUD showHUDAddedTo:ShareAppDelegate.window animated:YES];
+        [ContactsRequest tokenUploadRequestParameters:nil uploadParam:uploadParam success:^(PiblicHttpResponse *response) {
+            //            [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+            
+            NSDictionary *info = response.message;
+            NSString *path = info[@"tip"];
+            if (path.length >0) {
+                
+                 NSString *mobile = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERNAME];
+                [ContactsRequest userUpdateIconRequestParameters:@{@"mobile":mobile,@"icon":path} success:^(PiblicHttpResponse *response) {
+                    [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+                    NSString *tip = response.message[@"tip"];
+                    if ([tip isEqualToString:@"成功"]) {
+                        self.txImageView.image = theImage;
+                        [self roundImageView:self.txImageView withColor:nil];
+                    }
+                    
+                } fail:^(BOOL notReachable, NSString *desciption) {
+                    [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+                    [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+                    
+                }];
+            }
+            
+        } fail:^(BOOL notReachable, NSString *desciption) {
+            [MBProgressHUD hideAllHUDsForView:ShareAppDelegate.window animated:YES];
+            [MBProgressHUD showError:desciption toView:ShareAppDelegate.window];
+        }];
+    
     }];
 }
 

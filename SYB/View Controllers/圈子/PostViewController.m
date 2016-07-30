@@ -48,6 +48,7 @@
     titleTextField = textField;
     
     textView = [[IQTextView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(frame)+5,self.viewWidth,self.viewHeight -CGRectGetMaxY(frame)+5)];
+    textView.placeholder = @"帖子输入内容";
     
     [self.scrollView addSubview:textView];
 

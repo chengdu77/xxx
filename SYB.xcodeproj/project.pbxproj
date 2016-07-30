@@ -16,7 +16,6 @@
 		180143621D24F2BD00B79669 /* TypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180143611D24F2BD00B79669 /* TypeListViewController.m */; };
 		180143651D24F49B00B79669 /* check_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 180143631D24F49B00B79669 /* check_selected.png */; };
 		180143661D24F49B00B79669 /* check_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 180143641D24F49B00B79669 /* check_unselected.png */; };
-		1801436D1D24FCDD00B79669 /* ZYRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801436C1D24FCDD00B79669 /* ZYRadioButton.m */; };
 		180143701D251A9F00B79669 /* RegisterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801436F1D251A9F00B79669 /* RegisterPasswordViewController.m */; };
 		180143731D251AEA00B79669 /* RegisterUserInfosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180143721D251AEA00B79669 /* RegisterUserInfosViewController.m */; };
 		180ADEF71D139A59001EE2A1 /* UUAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ADEE81D139A59001EE2A1 /* UUAVAudioPlayer.m */; };
@@ -79,7 +78,6 @@
 		183A61B41D0E778100FD5AB0 /* UIView+BindValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61B01D0E778100FD5AB0 /* UIView+BindValues.m */; };
 		183A61B51D0E778100FD5AB0 /* UIView+screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61B21D0E778100FD5AB0 /* UIView+screenshot.m */; };
 		183A61C31D0E778F00FD5AB0 /* DDList.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61B71D0E778F00FD5AB0 /* DDList.m */; };
-		183A61C41D0E778F00FD5AB0 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61B91D0E778F00FD5AB0 /* EGORefreshTableHeaderView.m */; };
 		183A61C51D0E778F00FD5AB0 /* FolderCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61BB1D0E778F00FD5AB0 /* FolderCoverView.m */; };
 		183A61C61D0E778F00FD5AB0 /* HireListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61BD1D0E778F00FD5AB0 /* HireListCell.m */; };
 		183A61C71D0E778F00FD5AB0 /* LeaveSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A61BF1D0E778F00FD5AB0 /* LeaveSlideView.m */; };
@@ -278,6 +276,9 @@
 		183C8DD91D191838001B9503 /* WaitingDoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183C8DD81D191838001B9503 /* WaitingDoctorViewController.m */; };
 		183C8DDC1D192918001B9503 /* MyBespokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183C8DDB1D192918001B9503 /* MyBespokeViewController.m */; };
 		183C8DDF1D19340C001B9503 /* CaseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183C8DDE1D19340C001B9503 /* CaseHistoryViewController.m */; };
+		1841851A1D47C3DB00C02D23 /* QRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 184185191D47C3DB00C02D23 /* QRadioButton.m */; };
+		184185241D4B36DD00C02D23 /* MyPostsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184185221D4B36DD00C02D23 /* MyPostsCell.m */; };
+		184185251D4B36DD00C02D23 /* MyPostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184185231D4B36DD00C02D23 /* MyPostsCell.xib */; };
 		18447B551D3F4F1B00DE65F6 /* CirclePostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18447B541D3F4F1B00DE65F6 /* CirclePostsViewController.m */; };
 		18447B581D3F68EF00DE65F6 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18447B571D3F68EF00DE65F6 /* PostViewController.m */; };
 		18522B9F1D41BAB800CC1EF0 /* MyPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18522B9E1D41BAB800CC1EF0 /* MyPostsViewController.m */; };
@@ -362,8 +363,6 @@
 		180143611D24F2BD00B79669 /* TypeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeListViewController.m; path = "View Controllers/登陆/TypeListViewController.m"; sourceTree = "<group>"; };
 		180143631D24F49B00B79669 /* check_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_selected.png; path = img/check_selected.png; sourceTree = "<group>"; };
 		180143641D24F49B00B79669 /* check_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_unselected.png; path = img/check_unselected.png; sourceTree = "<group>"; };
-		1801436B1D24FCDD00B79669 /* ZYRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZYRadioButton.h; path = View/ZYRadioButton.h; sourceTree = "<group>"; };
-		1801436C1D24FCDD00B79669 /* ZYRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZYRadioButton.m; path = View/ZYRadioButton.m; sourceTree = "<group>"; };
 		1801436E1D251A9F00B79669 /* RegisterPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterPasswordViewController.h; path = "View Controllers/登陆/RegisterPasswordViewController.h"; sourceTree = "<group>"; };
 		1801436F1D251A9F00B79669 /* RegisterPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterPasswordViewController.m; path = "View Controllers/登陆/RegisterPasswordViewController.m"; sourceTree = "<group>"; };
 		180143711D251AEA00B79669 /* RegisterUserInfosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterUserInfosViewController.h; path = "View Controllers/登陆/RegisterUserInfosViewController.h"; sourceTree = "<group>"; };
@@ -467,8 +466,6 @@
 		183A61B21D0E778100FD5AB0 /* UIView+screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+screenshot.m"; path = "View/UIView+screenshot.m"; sourceTree = "<group>"; };
 		183A61B61D0E778F00FD5AB0 /* DDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDList.h; path = View/DDList.h; sourceTree = "<group>"; };
 		183A61B71D0E778F00FD5AB0 /* DDList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDList.m; path = View/DDList.m; sourceTree = "<group>"; };
-		183A61B81D0E778F00FD5AB0 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGORefreshTableHeaderView.h; path = View/EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
-		183A61B91D0E778F00FD5AB0 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGORefreshTableHeaderView.m; path = View/EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		183A61BA1D0E778F00FD5AB0 /* FolderCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FolderCoverView.h; path = View/FolderCoverView.h; sourceTree = "<group>"; };
 		183A61BB1D0E778F00FD5AB0 /* FolderCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FolderCoverView.m; path = View/FolderCoverView.m; sourceTree = "<group>"; };
 		183A61BC1D0E778F00FD5AB0 /* HireListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HireListCell.h; path = View/HireListCell.h; sourceTree = "<group>"; };
@@ -709,6 +706,11 @@
 		183C8DDB1D192918001B9503 /* MyBespokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyBespokeViewController.m; path = "View Controllers/个人中心/MyBespokeViewController.m"; sourceTree = "<group>"; };
 		183C8DDD1D19340C001B9503 /* CaseHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaseHistoryViewController.h; path = "View Controllers/个人中心/CaseHistoryViewController.h"; sourceTree = "<group>"; };
 		183C8DDE1D19340C001B9503 /* CaseHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaseHistoryViewController.m; path = "View Controllers/个人中心/CaseHistoryViewController.m"; sourceTree = "<group>"; };
+		184185181D47C3DB00C02D23 /* QRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRadioButton.h; path = View/QRadioButton.h; sourceTree = "<group>"; };
+		184185191D47C3DB00C02D23 /* QRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRadioButton.m; path = View/QRadioButton.m; sourceTree = "<group>"; };
+		184185211D4B36DD00C02D23 /* MyPostsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyPostsCell.h; path = "View Controllers/个人中心/MyPostsCell.h"; sourceTree = "<group>"; };
+		184185221D4B36DD00C02D23 /* MyPostsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyPostsCell.m; path = "View Controllers/个人中心/MyPostsCell.m"; sourceTree = "<group>"; };
+		184185231D4B36DD00C02D23 /* MyPostsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyPostsCell.xib; path = "View Controllers/个人中心/MyPostsCell.xib"; sourceTree = "<group>"; };
 		18447B531D3F4F1B00DE65F6 /* CirclePostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CirclePostsViewController.h; path = "View Controllers/圈子/CirclePostsViewController.h"; sourceTree = "<group>"; };
 		18447B541D3F4F1B00DE65F6 /* CirclePostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CirclePostsViewController.m; path = "View Controllers/圈子/CirclePostsViewController.m"; sourceTree = "<group>"; };
 		18447B561D3F68EF00DE65F6 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = "View Controllers/圈子/PostViewController.h"; sourceTree = "<group>"; };
@@ -1057,14 +1059,12 @@
 				183A61B21D0E778100FD5AB0 /* UIView+screenshot.m */,
 				183A61B61D0E778F00FD5AB0 /* DDList.h */,
 				183A61B71D0E778F00FD5AB0 /* DDList.m */,
-				183A61B81D0E778F00FD5AB0 /* EGORefreshTableHeaderView.h */,
-				183A61B91D0E778F00FD5AB0 /* EGORefreshTableHeaderView.m */,
+				184185181D47C3DB00C02D23 /* QRadioButton.h */,
+				184185191D47C3DB00C02D23 /* QRadioButton.m */,
 				183A61BA1D0E778F00FD5AB0 /* FolderCoverView.h */,
 				183A61BB1D0E778F00FD5AB0 /* FolderCoverView.m */,
 				183A61BC1D0E778F00FD5AB0 /* HireListCell.h */,
 				183A61BD1D0E778F00FD5AB0 /* HireListCell.m */,
-				1801436B1D24FCDD00B79669 /* ZYRadioButton.h */,
-				1801436C1D24FCDD00B79669 /* ZYRadioButton.m */,
 				183A61BE1D0E778F00FD5AB0 /* LeaveSlideView.h */,
 				183A61BF1D0E778F00FD5AB0 /* LeaveSlideView.m */,
 				180ADF571D14FF19001EE2A1 /* JCProgressView.h */,
@@ -1494,6 +1494,9 @@
 				18560E481D1A79BB00BF47C5 /* CaseHistoryDetailViewController.m */,
 				18522B9D1D41BAB800CC1EF0 /* MyPostsViewController.h */,
 				18522B9E1D41BAB800CC1EF0 /* MyPostsViewController.m */,
+				184185211D4B36DD00C02D23 /* MyPostsCell.h */,
+				184185221D4B36DD00C02D23 /* MyPostsCell.m */,
+				184185231D4B36DD00C02D23 /* MyPostsCell.xib */,
 				18522BA01D41BB5B00CC1EF0 /* MedicineRemindViewController.h */,
 				18522BA11D41BB5B00CC1EF0 /* MedicineRemindViewController.m */,
 			);
@@ -1763,6 +1766,7 @@
 				183A62A51D0E7F3B00FD5AB0 /* icon_out.png in Resources */,
 				183A62DA1D0E7F3B00FD5AB0 /* question_photo.png in Resources */,
 				18560E461D1A76C500BF47C5 /* chatfrom_bg.png in Resources */,
+				184185251D4B36DD00C02D23 /* MyPostsCell.xib in Resources */,
 				183A62BA1D0E7F3B00FD5AB0 /* mostimgwrite.png in Resources */,
 				180ADF391D139AE6001EE2A1 /* chatfrom_doctor_icon.png in Resources */,
 				183A630B1D0E7F3B00FD5AB0 /* weixin.png in Resources */,
@@ -1972,7 +1976,6 @@
 				183C8DBE1D18D637001B9503 /* UserCenterViewController.m in Sources */,
 				183A63A51D0F9AB900FD5AB0 /* NewsViewController.m in Sources */,
 				183A63A81D0F9AD400FD5AB0 /* AddressViewController.m in Sources */,
-				1801436D1D24FCDD00B79669 /* ZYRadioButton.m in Sources */,
 				180ADF451D139C5E001EE2A1 /* ChatMainViewController.m in Sources */,
 				180ADF121D139AAC001EE2A1 /* MJRefreshFooterView.m in Sources */,
 				183A63A21D0F9A7900FD5AB0 /* ExpertViewController.m in Sources */,
@@ -1991,6 +1994,7 @@
 				18447B581D3F68EF00DE65F6 /* PostViewController.m in Sources */,
 				183A61C31D0E778F00FD5AB0 /* DDList.m in Sources */,
 				183A61E61D0E790300FD5AB0 /* CLLocation+YCLocation.m in Sources */,
+				1841851A1D47C3DB00C02D23 /* QRadioButton.m in Sources */,
 				18D8D1E31D123939000B6A91 /* AppointmentViewController.m in Sources */,
 				183C8DDC1D192918001B9503 /* MyBespokeViewController.m in Sources */,
 				1896164E1D3DED250065A572 /* SL_NSDictionary2Object.m in Sources */,
@@ -2009,6 +2013,7 @@
 				18A05EDF1D1FE27F005A25DC /* SendAddressViewController.m in Sources */,
 				180ADF131D139AAC001EE2A1 /* MJRefreshHeaderView.m in Sources */,
 				1862D8B21D1F569E00FC8E94 /* PaymentCell.m in Sources */,
+				184185241D4B36DD00C02D23 /* MyPostsCell.m in Sources */,
 				189AA7B21D1BABB60060955B /* MedicallyAppointmentViewController.m in Sources */,
 				189AA7BD1D1CEC0D0060955B /* AccessReportViewController.m in Sources */,
 				1896164B1D3DED250065A572 /* SL_APIUtil.m in Sources */,
@@ -2054,7 +2059,6 @@
 				183A61B51D0E778100FD5AB0 /* UIView+screenshot.m in Sources */,
 				183A61F31D0E7A7800FD5AB0 /* NotificationControlModel.m in Sources */,
 				180ADEFB1D139A59001EE2A1 /* UUMessageCell.m in Sources */,
-				183A61C41D0E778F00FD5AB0 /* EGORefreshTableHeaderView.m in Sources */,
 				18522BA21D41BB5B00CC1EF0 /* MedicineRemindViewController.m in Sources */,
 				183A63991D0F99F800FD5AB0 /* KSJXTabBarController.m in Sources */,
 				183A61501D0E592C00FD5AB0 /* main.m in Sources */,
