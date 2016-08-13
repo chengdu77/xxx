@@ -59,8 +59,8 @@
 #define kModifyPasswordNotification @"ModifyPasswordNotification"
 #define kExpiredRequestsNotification @"ExpiredRequestsNotification"//退出登录(或者是令牌过期退出到登陆界面)
 
-#define IOS9_OR_LATER ( [[[UIDevice currentDevice] systemVersion] compare:@"9.0"] != NSOrderedAscending )
-#define IOS8_OR_LATER ( [[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending )
+#define IOS9_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"9.0"] != NSOrderedAscending )
+#define IOS8_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"8.0"] != NSOrderedAscending )
 
 
 #define kCellHeight 56;
